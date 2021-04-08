@@ -1,0 +1,25 @@
+{
+  "name": "fengyuclockbot",
+  "version": "1.0.0",
+  "description": "a fishing clock bot",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "FF14",
+    "clock",
+    "bot"
+  ],
+  "author": "fengyu",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/koa": "^2.13.1",
+    "axios": "^0.21.1",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.0.0",
+    "strftime": "^0.10.0"
+  }
+}
