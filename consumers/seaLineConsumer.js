@@ -1,5 +1,5 @@
 var Consumer = require('../consumers/Consumer');
-var createSeaFishingInfomation = require('../stdFunc/seaFishing');
+var createSeaFishingInfomation = require('../stdFunc/seaFishing').createSeaFishingInfomation;
 var seaLineConsumerValid = function(ctx){
     message = ctx.request.body.message;
     return ( message == '海钓航线' || message == '海钓航班' || message == '/海钓航线' || message == '/海钓航班')

@@ -5,8 +5,9 @@ var results2cdmessages = function(results,times){
         let result = results.time;
         var messages = `${name}：`;
         //console.log(results)
+        console.log(result.beginTimes[0]);
         if(result.beginTimes[0] == "常驻"){
-            messages+="常驻鱼"
+            messages+="此鱼为常驻鱼。\n"
         }
         else{
         //要对时间进行处理
@@ -42,6 +43,7 @@ var results2cdmessages = function(results,times){
     else{
         messages = null;
     }
+    console.log(messages);
     return messages;
 }
 module.exports = results2cdmessages;

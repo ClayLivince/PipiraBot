@@ -25,6 +25,7 @@ var cdConsumerCreateMessage = function(fishName){
     let messages = [];
     let results = fishCauculation(fishName);
     messages[0] = results2cdmessages(results,5);
+    console.log(messages)
     if(messages[0]!=null){messages[0]+="(*╹▽╹*)"}
     return messages;
 }

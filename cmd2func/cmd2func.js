@@ -5,7 +5,8 @@ const raiderConsumer = require('../consumers/raiderConsumer');
 const seaLineConsumer = require('../consumers/seaLineConsumer');
 const versionKingsConsumer = require('../consumers/versionKingsConsumer');
 const welcomeMessageConsumer = require('../consumers/welcomeMessageConsumer');
-let consumerList = [welcomeMessageConsumer,versionKingsConsumer,seaLineConsumer,raiderConsumer,helpConsumer,fourKingsConsumer,cdConsumer];
+const blessConsumer = require('../consumers/blessConsumer');
+let consumerList = [welcomeMessageConsumer,versionKingsConsumer,seaLineConsumer,raiderConsumer,helpConsumer,fourKingsConsumer,cdConsumer,blessConsumer];
 function cmd2func(ctx){
     /**
      * @param ctx : the ctx come from the input message.

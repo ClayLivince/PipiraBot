@@ -24,6 +24,7 @@ app.use(async ctx =>{
     let messages = results.messages;
     let consumer = results.consumer;
     messages.forEach((message,index)=>{
+        console.log(message);
         if(message){
         sendGroupMessage(address,ctx.request.body.group_id,message);}
     })
