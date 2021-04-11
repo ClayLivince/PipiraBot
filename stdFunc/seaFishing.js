@@ -32,6 +32,7 @@ function createSeaFishingInfomation(){
                 messages+=station+'\n'
             })
             messages+=`该航班由十二神之一的${line.blessName}守护，想要获得好运，就输入‘祈福’向其索求庇护吧。`
+            messages+="\n海钓具体信息可在鱼糕时钟 https://ricecake.traveleorzea.com/#/oceanFishing 查看";
         }
         else{
             messages+=`下一条航班为${line.name}\n目标:`;
@@ -42,8 +43,9 @@ function createSeaFishingInfomation(){
             line.stations.forEach((station,index)=>{
                 messages+=station+'\n'
             })
+            messages+=`该航班由十二神之一的${line.blessName}守护，想要获得好运，就输入‘祈福’向其索求庇护吧。`
+            messages+="\n海钓具体信息可在鱼糕时钟 https://ricecake.traveleorzea.com/#/oceanFishing 查看";
         }
-        messages+="\n海钓具体信息可在鱼糕时钟 https://ricecake.traveleorzea.com/#/oceanFishing 查看";
     }
     return messages;
 }
@@ -58,7 +60,7 @@ function createBlessInfomation(){
         var newOrder = changeOrder(days);
         var segment = Math.floor(hours/2);
         var line = linesList[newOrder[segment]];
-        messages = `${line.content}。虔诚的渔夫啊，我在此回应你的祈祷，在你下次出海时赐予你无尽的好运。`
+        messages = `${line.blessContent}。虔诚的渔夫啊，我在此回应你的祈祷，在你下次出海时赐予你无尽的好运。`
     }
     return messages;
 }
