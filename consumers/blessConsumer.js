@@ -7,12 +7,12 @@ var blessConsumerValid = function(ctx){
 }
 
 var blessConsumerGetParams = function(){
-    return [];
+    return [ctx.request.body.user_id];
 }
 
-var blessConsumerCreateMessage = function(){
+var blessConsumerCreateMessage = function(user_id){
     let messages = [];
-    messages[0] = createBlessInfomation();
+    messages[0] = createBlessInfomation(user_id);
     return messages;
 }
 

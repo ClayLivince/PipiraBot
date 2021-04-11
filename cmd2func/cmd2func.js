@@ -18,7 +18,6 @@ function cmd2func(ctx){
         if(consumer.valid(ctx)){
             let params = consumer.getParams(ctx);
             name = consumer.name;
-            console.log(name);
             messages = consumer.createMessage(...params);
         }
     });

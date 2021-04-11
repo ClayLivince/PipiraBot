@@ -1,7 +1,10 @@
 //infos
 var linesList = require('../resources/seaLine');
 var standardDay = new Date('2021-4-6 22:15:00').getTime();
-
+var ban = {
+    "blessName":"",
+    "banList":[]
+}
 function changeOrder(days){
     var orderList = [0,1,2,3,4,5,6,7,8,9,10,11];
     for(let i = 0;i<days;i++){
@@ -49,7 +52,7 @@ function createSeaFishingInfomation(){
     }
     return messages;
 }
-function createBlessInfomation(){
+function createBlessInfomation(user_id){
     var messages = '';
     var days;
     var minus = Date.now()-standardDay;
@@ -60,7 +63,44 @@ function createBlessInfomation(){
         var newOrder = changeOrder(days);
         var segment = Math.floor(hours/2);
         var line = linesList[newOrder[segment]];
-        messages = `${line.blessContent}。虔诚的渔夫啊，我在此回应你的祈祷，在你下次出海时赐予你无尽的好运。`
+        if(ban.blessName == line.blessName){
+            //如果现在还在banList的时间内
+            if(ban.banList.indexOf(user_id)!=-1){
+                //禁止重复祈福！
+                messages = `[CQ:at,qq:${user_id}],人无法两次踏入同一条河流，渔夫也无法两次对同一位神明索取祝福。`
+            }
+            else{
+                //39%,60%,1%
+                ban.banList.push(user_id); //添加一下banList
+                var luck = Math.floor(Math.random()*100); //0-99生成
+                if(luck==0){
+                    messages = `${line.curseContent}不知为何，[CQ:at,qq:${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
+                }
+                else if(luck>0&&luck<=31){
+                    messages = `在祈福之后，[CQ:at,qq:${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《Finally Fantasy 114》的游戏。看来下次出海只能靠你自己了。`
+                }
+                else{
+                    //好运哦
+                    messages = `${line.blessContent}虔诚的渔夫[CQ:at,qq:${user_id}]得到了神明的回应。你感到有无尽的好运伴随在身旁，下次出海一定会无比顺利。`
+                }
+            }
+        }
+        else{
+            ban.blessName = line.blessName; //重置
+            ban.banList = []; //空了
+            ban.banList.push(user_id); //添加一下banList
+            var luck = Math.floor(Math.random()*100); //0-99生成
+            if(luck==0){
+                messages = `${line.curseContent}不知为何，[CQ:at,qq:${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
+            }
+            else if(luck>0&&luck<=31){
+                messages = `在祈福之后，[CQ:at,qq:${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《Finally Fantasy 114》的游戏。看来下次出海只能靠你自己了。`
+            }
+            else{
+                //好运哦
+                messages = `${line.blessContent}虔诚的渔夫[CQ:at,qq:${user_id}]得到了神明的回应。你感到有无尽的好运伴随在身旁，下次出海一定会无比顺利。`
+            }
+        }
     }
     return messages;
 }
