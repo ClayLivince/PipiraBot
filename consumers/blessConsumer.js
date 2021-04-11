@@ -6,7 +6,7 @@ var blessConsumerValid = function(ctx){
     return message == "祈福";
 }
 
-var blessConsumerGetParams = function(){
+var blessConsumerGetParams = function(ctx){
     return [ctx.request.body.user_id];
 }
 
