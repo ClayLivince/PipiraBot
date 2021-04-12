@@ -73,11 +73,11 @@ function createBlessInfomation(user_id){
                 //39%,60%,1%
                 ban.banList.push(user_id); //添加一下banList
                 var luck = Math.floor(Math.random()*100); //0-99生成
-                if(luck<=5){
+                if(luck<3){
                     messages = `${line.curseContent}不知为何，[CQ:at,qq=${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
                 }
-                else if(luck>5&&luck<=55){
-                    gameLists = ["猛男钓鲈鱼","Finally Fantasy 404","锟斤拷烫烫烫烫","垫脚大制造2","有戏王中王","驴石传说","明天的船"];
+                else if(luck>=3&&luck<=55){
+                    gameLists = ["猛男钓鲈鱼","Finally Fantasy 404","锟斤拷烫烫烫烫","垫脚大制造2","有戏王中王","驴石传说","明天的船","猛汉王：起飞","再来一回合6","大鸟转转转酒吧","痒痒鼠","埃及旅游模拟器","三蹦子","P4白银版","星露谷澡堂","妹妹狙谁呢","风暴要火","公主焊接","给他爱5","巨凹巨","喜之狼","山口山","光明之云鬼III","再入兽王境","战神和他的老父亲","Creeper"];
                     var gameIndex = Math.floor((Math.random()*gameLists.length))
                     messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《${gameLists[gameIndex]}》的游戏。看来下次出海只能靠你自己了。`
                 }
@@ -100,11 +100,11 @@ function createBlessInfomation(user_id){
             ban.banList = []; //空了
             ban.banList.push(user_id); //添加一下banList
             var luck = Math.floor(Math.random()*100); //0-99生成
-            if(luck<=5){
+            if(luck<3){
                 messages = `${line.curseContent}不知为何，[CQ:at,qq=${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
             }
-            else if(luck>5&&luck<=55){
-                gameLists = ["猛男钓鲈鱼","Finally Fantasy 404","锟斤拷烫烫烫烫","垫脚大制造2","有戏王中王","驴石传说","明天的船"];
+            else if(luck>=3&&luck<=55){
+                gameLists = ["猛男钓鲈鱼","Finally Fantasy 404","锟斤拷烫烫烫烫","垫脚大制造2","有戏王中王","驴石传说","明天的船","猛汉王：起飞","再来一回合6","大鸟转转转酒吧","痒痒鼠","埃及旅游模拟器","三蹦子","P4白银版","星露谷澡堂","妹妹狙谁呢","风暴要火","公主焊接","给他爱5","巨凹巨","喜之狼","山口山","光明之云鬼III","再入兽王境","战神和他的老父亲","Creeper"];
                 var gameIndex = Math.floor((Math.random()*gameLists.length))
                 messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《${gameLists[gameIndex]}》的游戏。看来下次出海只能靠你自己了。`
             }
