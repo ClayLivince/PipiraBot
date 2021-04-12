@@ -102,7 +102,9 @@ function createBlessInfomation(user_id){
                 messages = `${line.curseContent}不知为何，[CQ:at,qq=${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
             }
             else if(luck>5&&luck<=55){
-                messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《Finally Fantasy 114》的游戏。看来下次出海只能靠你自己了。`
+                gameLists = ["猛男钓鲈鱼","Finally Fantasy 404","锟斤拷烫烫烫烫","垫脚大制造2","有戏王中王","驴石传说","明天的船"];
+                var gameIndex = Math.floor((Math.random()*gameLists.length))
+                messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《${gameLists[gameIndex]}》的游戏。看来下次出海只能靠你自己了。`
             }
             else{
                 //好运哦
