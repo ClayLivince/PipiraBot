@@ -27,14 +27,15 @@ app.use(async ctx =>{
     messages.forEach((message,index)=>{
         console.log(message);
         if(message){
-        sendGroupMessage(address,ctx.request.body.group_id,message);}
+        sendGroupMessage(address,ctx.request.body.group_id,message);
+        fs.appendFile('../log/log.txt',JSON.stringify({ //TODO: Set the static object.
+            "consumerName":consumer,
+            "id":ctx.request.body.user_id,
+            "message":message,
+        }),()=>{})
+        }
     })
     //record data to files by consumer.
-    fs.appendFile('../log/log.txt',JSON.stringify({ //TODO: Set the static object.
-        "consumerName":consumer,
-        "id":ctx.request.body.user_id,
-        "messages":messages,
-    }))
 
 })
 
