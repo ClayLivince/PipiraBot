@@ -1,4 +1,5 @@
 const address = 'http://localhost:5700';
+var fs = require('fs');
 var Koa = require('koa');
 var bodyParser = require('koa-bodyparser');
 var axios = require('axios');
@@ -29,6 +30,12 @@ app.use(async ctx =>{
         sendGroupMessage(address,ctx.request.body.group_id,message);}
     })
     //record data to files by consumer.
+    fs.appendFile('../log/log.txt',JSON.stringify({ //TODO: Set the static object.
+        "consumerName":consumer,
+        "id":ctx.request.body.user_id,
+        "messages":messages,
+    }))
+
 })
 
 var groupList = [];

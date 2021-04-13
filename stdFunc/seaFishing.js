@@ -1,10 +1,12 @@
 //infos
 var linesList = require('../resources/seaLine');
+var gameLists = require('../resources/gameLists');
 var standardDay = new Date('2021-4-6 22:15:00').getTime();
 var ban = {
     "blessName":"",
     "banList":[]
 }
+var gameLists = 
 function changeOrder(days){
     var orderList = [0,1,2,3,4,5,6,7,8,9,10,11];
     for(let i = 0;i<days;i++){
@@ -13,7 +15,6 @@ function changeOrder(days){
     }
     return orderList;
 }
-
 function createSeaFishingInfomation(){
     var messages = '';
     var days;
@@ -77,7 +78,6 @@ function createBlessInfomation(user_id){
                     messages = `${line.curseContent}不知为何，[CQ:at,qq=${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
                 }
                 else if(luck>=3&&luck<=55){
-                    gameLists = ["猛男钓鲈鱼","Finally Fantasy 404","锟斤拷烫烫烫烫","垫脚大制造2","有戏王中王","驴石传说","明天的船","猛汉王：起飞","再来一回合6","大鸟转转转酒吧","痒痒鼠","埃及旅游模拟器","三蹦子","P4白银版","星露谷澡堂","妹妹狙谁呢","风暴要火","公主焊接","给他爱5","巨凹巨","喜之狼","山口山","光明之云鬼III","再入兽王境","战神和他的老父亲","Creeper"];
                     var gameIndex = Math.floor((Math.random()*gameLists.length))
                     messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《${gameLists[gameIndex]}》的游戏。看来下次出海只能靠你自己了。`
                 }
@@ -104,7 +104,6 @@ function createBlessInfomation(user_id){
                 messages = `${line.curseContent}不知为何，[CQ:at,qq=${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
             }
             else if(luck>=3&&luck<=55){
-                gameLists = ["猛男钓鲈鱼","Finally Fantasy 404","锟斤拷烫烫烫烫","垫脚大制造2","有戏王中王","驴石传说","明天的船","猛汉王：起飞","再来一回合6","大鸟转转转酒吧","痒痒鼠","埃及旅游模拟器","三蹦子","P4白银版","星露谷澡堂","妹妹狙谁呢","风暴要火","公主焊接","给他爱5","巨凹巨","喜之狼","山口山","光明之云鬼III","再入兽王境","战神和他的老父亲","Creeper"];
                 var gameIndex = Math.floor((Math.random()*gameLists.length))
                 messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《${gameLists[gameIndex]}》的游戏。看来下次出海只能靠你自己了。`
             }
