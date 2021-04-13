@@ -6,7 +6,6 @@ var ban = {
     "blessName":"",
     "banList":[]
 }
-var gameLists = 
 function changeOrder(days){
     var orderList = [0,1,2,3,4,5,6,7,8,9,10,11];
     for(let i = 0;i<days;i++){
