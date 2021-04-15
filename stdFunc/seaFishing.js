@@ -76,16 +76,16 @@ function createBlessInfomation(user_id){
                 if(luck<3){
                     messages = `${line.curseContent}不知为何，[CQ:at,qq=${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
                 }
-                else if(luck>=3&&luck<=55){
+                else if(luck>=3&&luck<=43){
                     var gameIndex = Math.floor((Math.random()*gameLists.length))
                     messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《${gameLists[gameIndex]}》的游戏。看来下次出海只能靠你自己了。`
                 }
                 else{
                     //好运哦
-                    if(luck>55&&luck<=82){ //little luck
+                    if(luck>43&&luck<=73){ //little luck
                         messages = `${line.blessContent}虔诚的渔夫[CQ:at,qq=${user_id}]得到了神明的回应。你感到有一丝好运伴随在身旁，下次出海一定会略有收获。`
                     }
-                    else if(luck>82&&luck<95){
+                    else if(luck>73&&luck<=90){
                         messages = `${line.blessContent}虔诚的渔夫[CQ:at,qq=${user_id}]得到了神明的回应。你感到有大量好运伴随在身旁，下次出海一定会肯定会大有收获。`
                     }
                     else{
@@ -102,16 +102,16 @@ function createBlessInfomation(user_id){
             if(luck<3){
                 messages = `${line.curseContent}不知为何，[CQ:at,qq=${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
             }
-            else if(luck>=3&&luck<=55){
+            else if(luck>=3&&luck<=43){
                 var gameIndex = Math.floor((Math.random()*gameLists.length))
-                messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《${gameLists[gameIndex]}》的游戏。看来下次出海只能靠你自己了。`
+                messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是在玩一款叫《${gameLists[gameIndex]}》的游戏。看来下次出海只能靠你自己了。`
             }
             else{
                 //好运哦
-                if(luck>55&&luck<=82){ //little luck
+                if(luck>43&&luck<=73){ //little luck
                     messages = `${line.blessContent}虔诚的渔夫[CQ:at,qq=${user_id}]得到了神明的回应。你感到有一丝好运伴随在身旁，下次出海一定会略有收获。`
                 }
-                else if(luck>82&&luck<95){
+                else if(luck>73&&luck<=90){
                     messages = `${line.blessContent}虔诚的渔夫[CQ:at,qq=${user_id}]得到了神明的回应。你感到有大量好运伴随在身旁，下次出海一定会肯定会大有收获。`
                 }
                 else{
