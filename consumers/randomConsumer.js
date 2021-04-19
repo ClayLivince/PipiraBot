@@ -9,7 +9,7 @@ var randomConsumerGetParams = function(ctx){
     dealtMessage = message.trim().split(/\s+/);
     dealtMessage.shift();
     var randomIndex = Math.floor((Math.random()*(dealtMessage.length)));
-    return dealtMessage[randomIndex];
+    return [dealtMessage[randomIndex]];
 }
 
 var randomConsumerCreateMessage = function(user_id){
