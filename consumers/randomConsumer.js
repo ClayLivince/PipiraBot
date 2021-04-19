@@ -8,7 +8,7 @@ var randomConsumerGetParams = function(ctx){
     message = ctx.request.body.message;
     dealtMessage = message.trim().split(/\s+/);
     dealtMessage.shift();
-    var randomIndex = Math.floor((Math.random()*dealtMessage.length));
+    var randomIndex = Math.floor((Math.random()*(dealtMessage.length)));
     return dealtMessage[randomIndex];
 }
 
