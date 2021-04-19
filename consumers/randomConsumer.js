@@ -14,7 +14,8 @@ var randomConsumerGetParams = function(ctx){
 
 var randomConsumerCreateMessage = function(user_id){
     let messages = [];
-    messages[0] = `你的脑海里传来了一个模糊的声音:"我是皮皮拉鱼神，帮助纠结的你做出选择——${user_id}"`;
+    if(user_id){
+    messages[0] = `你的脑海里传来了一个模糊的声音:"我是皮皮拉鱼神，帮助纠结的你做出选择——${user_id}"`;}
     return messages;
 }
 
