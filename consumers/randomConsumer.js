@@ -1,7 +1,7 @@
 const Consumer = require("./Consumer");
 var randomConsumerValid = function(ctx){
     message = ctx.request.body.message;
-    return message||message.indexOf("随机") == 0 || message.indexOf("选") == 0 || message.indexOf("帮我选") == 0 ||  message.indexOf("/随机") == 0 || message.indexOf("/选") == 0 || message.indexOf("/帮我选") == 0
+    return message&&(message.indexOf("随机") == 0 || message.indexOf("选") == 0 || message.indexOf("帮我选") == 0 ||  message.indexOf("/随机") == 0 || message.indexOf("/选") == 0 || message.indexOf("/帮我选") == 0)
 }
 
 var randomConsumerGetParams = function(ctx){
