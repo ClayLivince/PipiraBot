@@ -9,10 +9,10 @@ class cdConsumerClass extends Consumer{
     }
     static valid(ctx){
         let validMessage = ctx.request.body.message;
-        return validMessage && (validMessage.slice(validMessage.length-2) == "CD" || validMessage.slice(validMessage.length-2)=="CD");
+        return validMessage && (validMessage.slice(validMessage.length-2) == "CD" || validMessage.slice(validMessage.length-2)=="cd");
     }
     work(){
-        let contentMessage = ctx.request.body.message;
+        let contentMessage = this.ctx.request.body.message;
         let fishName = contentMessage.slice(0,contentMessage.length-2);
         fishName = fishName.replace(/\+/g,"").replace(/[\r\n]/g,"");
         if(fishName[0] == '/'){fishName = fishName.slice(1)};
