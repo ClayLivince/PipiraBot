@@ -10,7 +10,7 @@ class randomConsumerClass extends Consumer{
     }
     work(){
         var contentMessage = this.ctx.request.body.message;
-        dealtMessage = contentMessage.trim().split(/\s+/);
+        var dealtMessage = contentMessage.trim().split(/\s+/);
         dealtMessage.shift();
         var randomIndex = Math.floor((Math.random()*(dealtMessage.length)));
         if(dealtMessage[randomIndex]){
