@@ -13,7 +13,7 @@ class raiderConsumerClass extends Consumer{
         return validMessage && (validMessage.slice(validMessage.length-2)=="攻略")
     }
     work(){
-        let contentMessage = ctx.request.body.message;
+        let contentMessage = this.ctx.request.body.message;
         var fishName = contentMessage.slice(0,contentMessage.length-2);
         fishName = fishName.replace(/\ +/g,"").replace(/[\r\n]/g,""); // 去掉空格和回车
         if(fishName[0] == '/'){fishName = fishName.slice(1)}
