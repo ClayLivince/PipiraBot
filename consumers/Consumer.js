@@ -1,9 +1,15 @@
-class Consumer { //规定了consumer的形式
-    constructor(valid,getParams,createMessage,name){
-        this.valid = valid;
-        this.getParams = getParams;
-        this.createMessage = createMessage;
-        this.name = name;
+class Consumer {
+     //规定了consumer的形式
+    constructor(ctx){
+        this.ctx = ctx;
+    }
+    message = [];
+    log = {};
+    static valid(ctx){
+        return false;
+    }
+    work(){
+
     }
 }
 

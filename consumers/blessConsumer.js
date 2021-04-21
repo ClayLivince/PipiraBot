@@ -1,23 +1,28 @@
 const Consumer = require("./Consumer");
-
 var createBlessInfomation = require('../stdFunc/seaFishing').createBlessInfomation;
-var blessConsumerValid = function(ctx){
-    message = ctx.request.body.message;
-    return message == "祈福";
+class blessConsumerClass extends Consumer{ //新类
+    constructor(ctx){
+        super(ctx);
+        this.work(); //构造函数就开干!
+    }
+    static valid(ctx){
+        let validMessage = ctx.request.body.message;
+        return validMessage == "祈福" || validMessage == "欺负" || validMessage == "祈祷";
+    }
+    work(){ //直接开干！
+        let id = this.ctx.request.body.user_id;
+        let result = createBlessInfomation(id);
+        this.message[0] = result.messages;
+        this.log = {
+            "id":id,
+            "type":"bless",
+            "date":Date.now(),
+            "content":{
+                "luck":result.luck,
+                "sail":result.bless,
+                "game":result.game,
+            }
+        }
+    }
 }
-
-var blessConsumerGetParams = function(ctx){
-    return [ctx.request.body.user_id];
-}
-
-var blessConsumerCreateMessage = function(user_id){
-    let messages = [];
-    messages[0] = createBlessInfomation(user_id);
-    return messages;
-}
-
-var blessConsumerName = "bless";
-
-var blessConsumer = new Consumer(blessConsumerValid,blessConsumerGetParams,blessConsumerCreateMessage,blessConsumerName);
-
-module.exports = blessConsumer;
+module.exports = blessConsumerClass;

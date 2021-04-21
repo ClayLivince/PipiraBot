@@ -1,26 +1,30 @@
 const Consumer = require("./Consumer");
-var randomConsumerValid = function(ctx){
-    message = ctx.request.body.message;
-    return message&&(message.indexOf("随机") == 0 || message.indexOf("选") == 0 || message.indexOf("帮我选") == 0 ||  message.indexOf("/随机") == 0 || message.indexOf("/选") == 0 || message.indexOf("/帮我选") == 0)
+class randomConsumerClass extends Consumer{
+    constructor(ctx){
+        super(ctx);
+        this.work();
+    }
+    static valid(ctx){
+        var validMessage = ctx.request.body.message;
+        return validMessage&&(validMessage.indexOf("随机") == 0 || validMessage.indexOf("选") == 0 || validMessage.indexOf("帮我选") == 0 ||  validMessage.indexOf("/随机") == 0 || validMessage.indexOf("/选") == 0 || validMessage.indexOf("/帮我选") == 0)
+    }
+    work(){
+        contentMessage = ctx.request.body.message;
+        dealtMessage = contentMessage.trim().split(/\s+/);
+        dealtMessage.shift();
+        var randomIndex = Math.floor((Math.random()*(dealtMessage.length)));
+        if(dealtMessage[randomIndex]){
+            this.message[0] = `你的脑海里传来了一个模糊的声音:"我是皮皮拉鱼神，帮助纠结的[CQ:at,qq=${this.ctx.request.body.user_id}]做出选择——${dealtMessage[randomIndex]}"`
+        }
+        this.log = {
+            "id": this.ctx.request.body.user_id,
+            "type": "random",
+            "date": Date.now(),
+            "content":{
+                "options":dealtMessage,
+                "choosen":dealtMessage[randomIndex]
+            }
+        }
+    }
 }
-
-var randomConsumerGetParams = function(ctx){
-    message = ctx.request.body.message;
-    dealtMessage = message.trim().split(/\s+/);
-    dealtMessage.shift();
-    var randomIndex = Math.floor((Math.random()*(dealtMessage.length)));
-    return [dealtMessage[randomIndex]];
-}
-
-var randomConsumerCreateMessage = function(user_id){
-    let messages = [];
-    if(user_id){
-    messages[0] = `你的脑海里传来了一个模糊的声音:"我是皮皮拉鱼神，帮助纠结的你做出选择——${user_id}"`;}
-    return messages;
-}
-
-var randomConsumerName = "random";
-
-var randomConsumer = new Consumer(randomConsumerValid,randomConsumerGetParams,randomConsumerCreateMessage,randomConsumerName);
-
-module.exports = randomConsumer;
+module.exports = randomConsumerClass;

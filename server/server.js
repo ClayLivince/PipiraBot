@@ -22,21 +22,16 @@ function sendGroupMessage(address,group_id,message){
 
 app.use(async ctx =>{
     let results = cmd2func(ctx);
-    let messages = results.messages;
-    let consumer = results.consumer;
+    console.log(results);
+    let messages = results.message;
+    let log = results.log;
     messages.forEach((message,index)=>{
-        console.log(message);
         if(message){
         sendGroupMessage(address,ctx.request.body.group_id,message);
-        fs.appendFile('../log/log.txt',JSON.stringify({ //TODO: Set the static object.
-            "consumerName":consumer,
-            "id":ctx.request.body.user_id,
-            "message":message,
-        }),()=>{})
+        fs.appendFile('../log/log.txt',JSON.stringify(log)+'\n',()=>{})
         }
     })
     //record data to files by consumer.
-
 })
 
 var groupList = [];

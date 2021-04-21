@@ -1,22 +1,21 @@
 var Consumer = require('../consumers/Consumer');
 var createSeaFishingInfomation = require('../stdFunc/seaFishing').createSeaFishingInfomation;
-var seaLineConsumerValid = function(ctx){
-    message = ctx.request.body.message;
-    return ( message == '海钓航线' || message == '海钓航班' || message == '/海钓航线' || message == '/海钓航班')
+class seaLineConsumerClass extends Consumer{
+    constructor(ctx){
+        super(ctx);
+        this.work();
+    }
+    static valid(ctx){
+        let validMessage = ctx.request.body.message;
+        return validMessage && ( validMessage == '海钓航线' || validMessage == '海钓航班' || validMessage == '/海钓航线' || validMessage == '/海钓航班')
+    }
+    work(){
+        this.message[0] = createSeaFishingInfomation();
+        this.log = {
+            "id":this.ctx.request.body.user_id,
+            "type":"seaLine",
+            "date":Date.now(),
+        }
+    }
 }
-
-var seaLineConsumerGetParams = function(){
-    return [];
-}
-
-var seaLineConsumerCreateMessage = function(){
-    let messages = [];
-    messages[0] = createSeaFishingInfomation();
-    return messages;
-}
-
-var seaLineConsumerName = "seaLine";
-
-var sealLineConsumer = new Consumer(seaLineConsumerValid,seaLineConsumerGetParams,seaLineConsumerCreateMessage,seaLineConsumerName);
-
-module.exports = sealLineConsumer;
+module.exports = seaLineConsumerClass;

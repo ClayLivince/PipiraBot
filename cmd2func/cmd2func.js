@@ -1,27 +1,28 @@
-const cdConsumer = require('../consumers/cdConsumer');
-const fourKingsConsumer = require('../consumers/fourKingsConsumer');
-const helpConsumer = require('../consumers/helpConsumer');
-const raiderConsumer = require('../consumers/raiderConsumer');
-const seaLineConsumer = require('../consumers/seaLineConsumer');
-const versionKingsConsumer = require('../consumers/versionKingsConsumer');
-const welcomeMessageConsumer = require('../consumers/welcomeMessageConsumer');
-const blessConsumer = require('../consumers/blessConsumer');
-const randomConsumer = require('../consumers/randomConsumer');
-let consumerList = [welcomeMessageConsumer,versionKingsConsumer,seaLineConsumer,raiderConsumer,helpConsumer,fourKingsConsumer,cdConsumer,blessConsumer,randomConsumer];
+const cdConsumerClass = require('../consumers/cdConsumer');
+const fourKingsConsumerClass = require('../consumers/fourKingsConsumer');
+const helpConsumerClass = require('../consumers/helpConsumer');
+const raiderConsumerClass = require('../consumers/raiderConsumer');
+const seaLineConsumerClass = require('../consumers/seaLineConsumer');
+const versionKingsConsumerClass = require('../consumers/versionKingsConsumer');
+const welcomeMessageConsumerClass = require('../consumers/welcomeMessageConsumer');
+const blessConsumerClass = require('../consumers/blessConsumer');
+const randomConsumerClass = require('../consumers/randomConsumer');
+let consumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass];
 function cmd2func(ctx){
+    var message;
+    var log;
     /**
      * @param ctx : the ctx come from the input message.
      * @return return the messages array.
      */
-    let messages = [];
-    let name = "";
-    consumerList.forEach(consumer => {
-        if(consumer.valid(ctx)){
-            let params = consumer.getParams(ctx);
-            name = consumer.name;
-            messages = consumer.createMessage(...params);
+    for(var i = 0; i<consumerList.length;i++){
+        if(consumerList[i].valid(ctx)){
+            var consum = new consumerList[i](ctx);
+            message = consum.message;
+            log = consum.log;
+            break;
         }
-    });
-    return {'messages':messages,'consumer':name}
+    }
+    return {message,log}
 }
 module.exports = cmd2func;

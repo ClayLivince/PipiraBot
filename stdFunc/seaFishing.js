@@ -120,6 +120,6 @@ function createBlessInfomation(user_id){
             }
         }
     }
-    return messages;
+    return {messages,luck,'bless':line.blessName,'game':gameLists[gameIndex]};
 }
 module.exports = {createSeaFishingInfomation,createBlessInfomation}
