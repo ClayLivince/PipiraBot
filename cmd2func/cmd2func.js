@@ -9,8 +9,8 @@ const blessConsumerClass = require('../consumers/blessConsumer');
 const randomConsumerClass = require('../consumers/randomConsumer');
 let consumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass];
 function cmd2func(ctx){
-    var message;
-    var log;
+    var message = [];
+    var log = {};
     /**
      * @param ctx : the ctx come from the input message.
      * @return return the messages array.
