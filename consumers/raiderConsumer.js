@@ -20,8 +20,8 @@ class raiderConsumerClass extends Consumer{
         if(nickName[fishName]){fishName = nickName[fishName];}
         let results = fishCauculation(fishName);
         this.message[1] = results2cdmessages(results,2);
-        if(this.message[1]!=null){this.messages[1]+="(*╹▽╹*)"}
-        this.messages[0] = (raider[fishName]?raider[fishName]:null);
+        if(this.message[1]!=null){this.message[1]+="(*╹▽╹*)"}
+        this.message[0] = (raider[fishName]?raider[fishName]:null);
         this.log = {
             "id":this.ctx.request.body.user_id,
             "type":"raider",
