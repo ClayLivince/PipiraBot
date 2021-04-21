@@ -9,7 +9,7 @@ class randomConsumerClass extends Consumer{
         return validMessage&&(validMessage.indexOf("随机") == 0 || validMessage.indexOf("选") == 0 || validMessage.indexOf("帮我选") == 0 ||  validMessage.indexOf("/随机") == 0 || validMessage.indexOf("/选") == 0 || validMessage.indexOf("/帮我选") == 0)
     }
     work(){
-        contentMessage = this.ctx.request.body.message;
+        var contentMessage = this.ctx.request.body.message;
         dealtMessage = contentMessage.trim().split(/\s+/);
         dealtMessage.shift();
         var randomIndex = Math.floor((Math.random()*(dealtMessage.length)));
