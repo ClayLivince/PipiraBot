@@ -1,7 +1,7 @@
 var line1 = {
-    "blessName":"通澈水君sterne",
-    "blessContent":"四下皆海，清明如月；万籁寂静，海中繁星。在下，通澈水君——sterne。",
-    "curseContent":"清者自清，浊者自浊。在下，通澈水君——sterne。",
+    "blessName":"通澈水君Sterne",
+    "blessContent":"四下皆海，清明如月；万籁寂静，海中繁星。在下，通澈水君——Sterne。",
+    "curseContent":"清者自清，浊者自浊。在下，通澈水君——Sterne。",
     "goals":['水母(成就)','冲分'],
     "name":"罗塔诺海航线",
     "stations":["加拉迪翁湾外海(白天)","梅尔托尔海峡南(黄昏)","罗塔诺海海面(夜晚)"]
