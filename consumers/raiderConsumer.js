@@ -4,8 +4,8 @@ const results2cdmessages = require('../stdFunc/results2cdmessages');
 const raider = require('../resources/raider');
 const Consumer = require('../consumers/Consumer');
 class raiderConsumerClass extends Consumer{
-    constructor(ctx){
-        super(ctx);
+    constructor(ctx,serverName){
+        super(ctx,serverName);
         this.work();
     }
     static valid(ctx){
@@ -26,6 +26,7 @@ class raiderConsumerClass extends Consumer{
             "id":this.ctx.request.body.user_id,
             "type":"raider",
             "date":Date.now(),
+            "group":this.ctx.request.body.group_id,
             "content":{
                 "fishName":fishName,
             }

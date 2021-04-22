@@ -1,7 +1,7 @@
 const Consumer = require('../consumers/Consumer');
 class helpConsumerClass extends Consumer{
-    constructor(ctx){
-        super(ctx);
+    constructor(ctx,serverName){
+        super(ctx,serverName);
         this.work();
     }
     static valid(ctx){
@@ -14,6 +14,7 @@ class helpConsumerClass extends Consumer{
             "id":this.ctx.request.body.user_id,
             "type":"help",
             "date":Date.now(),
+            "group":this.ctx.request.body.group_id,
         }
     }
 }

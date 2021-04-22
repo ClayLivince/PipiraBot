@@ -3,14 +3,27 @@ var fs = require('fs');
 var Koa = require('koa');
 var bodyParser = require('koa-bodyparser');
 var axios = require('axios');
-var cmd2func = require('../cmd2func/cmd2func');
+
+var birdCmd2func = require('../cmd2func/birdCmd2func');
+var pigCmd2func = require('../cmd2func/pigCmd2func');
+var catCmd2func = require('../cmd2func/catCmd2func');
+
 var fishAlarm = require('../timeConsumer/fishAlarm');
 var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
-
+var groupLists = { //This is the groupList and default is bird
+    //878312744:"bird",
+    //614011147:"bird",
+    122745078:"pig",
+    937306333:"cat",
+}
+var cmd2func = {
+    "bird":birdCmd2func,
+    "pig":pigCmd2func,
+    "cat":catCmd2func,
+}
 var app = new Koa();
 app.use(bodyParser());
 fullCaculation(); //Cauculation the fullResults
-
 function sendGroupMessage(address,group_id,message){
     let url = address+'/send_group_msg';
     axios.post(url,{group_id,message},{headers:{'Content-Type':'application/json'}}).then((response)=>{
@@ -21,7 +34,11 @@ function sendGroupMessage(address,group_id,message){
 }
 
 app.use(async ctx =>{
-    let results = cmd2func(ctx);
+    //现在需要先判断然后传递不同的参数
+    var serverName = groupLists[ctx.request.body.group_id];
+    if(!serverName){serverName = "default"};
+    let func = cmd2func[serverName];
+    let results = func(ctx);
     console.log(results);
     let messages = results.message;
     let log = results.log;

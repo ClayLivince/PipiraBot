@@ -2,8 +2,8 @@ var Consumer = require('../consumers/Consumer');
 const fishCauculation = require('../stdFunc/fishCauculation');
 const results2cdmessages = require('../stdFunc/results2cdmessages');
 class versionKingsConsumerClass extends Consumer{
-    constructor(ctx){
-        super(ctx);
+    constructor(ctx,serverName){
+        super(ctx,serverName);
         this.work();
     }
     static valid(ctx){
@@ -19,6 +19,7 @@ class versionKingsConsumerClass extends Consumer{
         })
         this.message[0] += "5.4鱼王获得力最低要求：1950。\n 5.5鱼王获得力最低要求：2150。";
         this.log = {
+            "group":this.ctx.request.body.group_id,
             "id":this.ctx.request.body.user_id,
             "type":"versionKing",
             "date":Date.now(),

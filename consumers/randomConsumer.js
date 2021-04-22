@@ -1,7 +1,7 @@
 const Consumer = require("./Consumer");
 class randomConsumerClass extends Consumer{
-    constructor(ctx){
-        super(ctx);
+    constructor(ctx,serverName){
+        super(ctx,serverName);
         this.work();
     }
     static valid(ctx){
@@ -20,6 +20,7 @@ class randomConsumerClass extends Consumer{
             "id": this.ctx.request.body.user_id,
             "type": "random",
             "date": Date.now(),
+            "group":this.ctx.request.body.group_id,
             "content":{
                 "options":dealtMessage,
                 "choosen":dealtMessage[randomIndex]

@@ -1,8 +1,8 @@
 const Consumer = require("./Consumer");
 var createBlessInfomation = require('../stdFunc/seaFishing').createBlessInfomation;
 class blessConsumerClass extends Consumer{ //新类
-    constructor(ctx){
-        super(ctx);
+    constructor(ctx,serverName){
+        super(ctx,serverName);
         this.work(); //构造函数就开干!
     }
     static valid(ctx){
@@ -17,6 +17,7 @@ class blessConsumerClass extends Consumer{ //新类
             "id":id,
             "type":"bless",
             "date":Date.now(),
+            "group":this.ctx.request.body.group_id,
             "content":{
                 "luck":result.luck,
                 "sail":result.bless,

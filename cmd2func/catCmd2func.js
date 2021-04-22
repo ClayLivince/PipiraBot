@@ -8,6 +8,7 @@ const welcomeMessageConsumerClass = require('../consumers/welcomeMessageConsumer
 const blessConsumerClass = require('../consumers/blessConsumer');
 const randomConsumerClass = require('../consumers/randomConsumer');
 let consumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass];
+const parameter = "cat";
 function cmd2func(ctx){
     var message = [];
     var log = [];
@@ -17,7 +18,7 @@ function cmd2func(ctx){
      */
     for(var i = 0; i<consumerList.length;i++){
         if(consumerList[i].valid(ctx)){
-            var consum = new consumerList[i](ctx);
+            var consum = new consumerList[i](ctx,parameter);
             message.push(...consum.message);
             log.push(consum.log); // TODO:Log 不能解引用，所以一个Consumer不能生成两份Log！！
         }

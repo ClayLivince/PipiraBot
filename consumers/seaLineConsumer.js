@@ -1,8 +1,8 @@
 var Consumer = require('../consumers/Consumer');
 var createSeaFishingInfomation = require('../stdFunc/seaFishing').createSeaFishingInfomation;
 class seaLineConsumerClass extends Consumer{
-    constructor(ctx){
-        super(ctx);
+    constructor(ctx,serverName){
+        super(ctx,serverName);
         this.work();
     }
     static valid(ctx){
@@ -12,6 +12,7 @@ class seaLineConsumerClass extends Consumer{
     work(){
         this.message[0] = createSeaFishingInfomation();
         this.log = {
+            "group":this.ctx.request.body.group_id,
             "id":this.ctx.request.body.user_id,
             "type":"seaLine",
             "date":Date.now(),
