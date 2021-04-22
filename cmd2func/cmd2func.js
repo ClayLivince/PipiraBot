@@ -18,8 +18,8 @@ function cmd2func(ctx){
     for(var i = 0; i<consumerList.length;i++){
         if(consumerList[i].valid(ctx)){
             var consum = new consumerList[i](ctx);
-            message.push(consum.message);
-            log.push(consum.log);
+            message.push(...consum.message);
+            log.push(consum.log); // TODO:Log 不能解引用，所以一个Consumer不能生成两份Log！！
         }
     }
     return {message,log}
