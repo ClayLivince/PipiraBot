@@ -28,7 +28,7 @@ app.use(async ctx =>{
     messages.forEach((message,index)=>{
         if(message){
         sendGroupMessage(address,ctx.request.body.group_id,message);
-        fs.appendFile('../log/log.txt',JSON.stringify(log)+'\n',()=>{})
+        fs.appendFile('../log/log.txt',JSON.stringify(log[index])+'\n',()=>{})
         }
     })
     //record data to files by consumer.

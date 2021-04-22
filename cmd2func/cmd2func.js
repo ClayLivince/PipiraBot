@@ -10,7 +10,7 @@ const randomConsumerClass = require('../consumers/randomConsumer');
 let consumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass];
 function cmd2func(ctx){
     var message = [];
-    var log = {};
+    var log = [];
     /**
      * @param ctx : the ctx come from the input message.
      * @return return the messages array.
@@ -18,9 +18,8 @@ function cmd2func(ctx){
     for(var i = 0; i<consumerList.length;i++){
         if(consumerList[i].valid(ctx)){
             var consum = new consumerList[i](ctx);
-            message = consum.message;
-            log = consum.log;
-            break;
+            message.push(consum.message);
+            log.push(consum.log);
         }
     }
     return {message,log}
