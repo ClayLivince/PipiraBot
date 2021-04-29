@@ -23,6 +23,6 @@ function cmd2func(ctx){
             log.push(consum.log); // TODO:Log 不能解引用，所以一个Consumer不能生成两份Log！！
         }
     }
-    return {message,log}
+    return {message,log,port}
 }
 module.exports = cmd2func;
