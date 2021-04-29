@@ -25,6 +25,7 @@ app.use(bodyParser());
 fullCaculation(); //Cauculation the fullResults
 function sendGroupMessage(port,group_id,message){
     let url = 'http://localhost:'+port+'/send_group_msg';
+    console.log(url);
     axios.post(url,{group_id,message},{headers:{'Content-Type':'application/json'}}).then((response)=>{
         // console.log(response); if no error occures dont need to deal with respose.
     }).catch((err)=>{
@@ -51,7 +52,7 @@ app.use(async ctx =>{
 })
 
 var groupList = [];
-axios.post(address+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
+axios.post('http://localhost:5700'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
     res.data.data.forEach((group_msg)=>{
         groupList.push(group_msg.group_id)
     })
@@ -62,7 +63,7 @@ setInterval(function(){ //定时广播
     let messages = fishAlarm();
     messages.forEach((message)=>{
         groupList.forEach((group)=>{
-            sendGroupMessage(address,group,message);
+            sendGroupMessage('5701',group,message);
         })
     })
 },60000);
