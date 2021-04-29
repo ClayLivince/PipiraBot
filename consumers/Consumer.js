@@ -4,6 +4,7 @@ class Consumer {
         this.ctx = ctx;
         this.serverName = serverName;
     }
+    port = '0'; //default is 0
     message = [];
     log = {};
     static valid(ctx){

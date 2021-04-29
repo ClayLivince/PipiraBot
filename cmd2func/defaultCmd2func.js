@@ -8,11 +8,10 @@ const welcomeMessageConsumerClass = require('../consumers/welcomeMessageConsumer
 const blessConsumerClass = require('../consumers/blessConsumer');
 const randomConsumerClass = require('../consumers/randomConsumer');
 let consumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass];
-const parameter = "pig";
+const parameter = "default";
 function cmd2func(ctx){
     var message = [];
-    var log = []; //TODO: Log 有必要写成数组吗？
-    var port = '0';
+    var log = [];
     /**
      * @param ctx : the ctx come from the input message.
      * @return return the messages array.
@@ -22,9 +21,8 @@ function cmd2func(ctx){
             var consum = new consumerList[i](ctx,parameter);
             message.push(...consum.message);
             log.push(consum.log); // TODO:Log 不能解引用，所以一个Consumer不能生成两份Log！！
-            port = consum.port;
         }
     }
-    return {message,log,port}
+    return {message,log}
 }
 module.exports = cmd2func;

@@ -3,6 +3,7 @@ var createBlessInfomation = require('../stdFunc/seaFishing').createBlessInfomati
 class blessConsumerClass extends Consumer{ //新类
     constructor(ctx,serverName){
         super(ctx,serverName);
+        this.port = '5700';
         this.work(); //构造函数就开干!
     }
     static valid(ctx){
@@ -23,7 +24,7 @@ class blessConsumerClass extends Consumer{ //新类
                 "sail":result.bless,
                 "game":result.game,
             }
-        }
+        };
     }
 }
 module.exports = blessConsumerClass;

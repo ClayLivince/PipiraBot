@@ -3,6 +3,7 @@ const welcomeMessages = require('../resources/welcomeMessages');
 class welconeConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
+        this.port = '5701';
         this.work();
     }
     static valid(ctx){

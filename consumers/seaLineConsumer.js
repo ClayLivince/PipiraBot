@@ -3,6 +3,7 @@ var createSeaFishingInfomation = require('../stdFunc/seaFishing').createSeaFishi
 class seaLineConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
+        this.port = '5701';
         this.work();
     }
     static valid(ctx){

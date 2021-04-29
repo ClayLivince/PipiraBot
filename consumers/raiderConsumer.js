@@ -6,6 +6,7 @@ const Consumer = require('../consumers/Consumer');
 class raiderConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
+        this.port = '5701';
         this.work();
     }
     static valid(ctx){
