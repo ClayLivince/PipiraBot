@@ -12,6 +12,7 @@ const parameter = "cat";
 function cmd2func(ctx){
     var message = [];
     var log = [];
+    var port = '0';
     /**
      * @param ctx : the ctx come from the input message.
      * @return return the messages array.
@@ -21,6 +22,7 @@ function cmd2func(ctx){
             var consum = new consumerList[i](ctx,parameter);
             message.push(...consum.message);
             log.push(consum.log); // TODO:Log 不能解引用，所以一个Consumer不能生成两份Log！！
+            port = consum.port;
         }
     }
     return {message,log,port}
