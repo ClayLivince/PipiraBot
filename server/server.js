@@ -11,10 +11,11 @@ var catCmd2func = require('../cmd2func/catCmd2func');
 var fishAlarm = require('../timeConsumer/fishAlarm');
 var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
 var groupLists = { //This is the groupList and default is bird
-    878312744:"bird",
+    878312744:"default",
     614011147:"bird",
     122745078:"pig",
     937306333:"cat",
+    389851635:"default",
 }
 var cmd2func = {
     "bird":birdCmd2func,
