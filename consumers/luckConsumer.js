@@ -1,5 +1,5 @@
 const Consumer = require('./Consumer');
-var createLuckInformation = require('../stdFunc/createLuckInfomation');
+var createLuckInformation = require('../stdFunc/createLuckInformation');
 class luckConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
