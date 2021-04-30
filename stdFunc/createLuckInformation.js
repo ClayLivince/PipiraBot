@@ -72,7 +72,7 @@ function createLuckInfomation(user_id){
             luckyPlace = luckyPlacesList[placeIndex];
             luckyPet = luckyPetsList[petIndex];
             luckyPoem = poemList[poemIndex];
-            messages = `[CQ:at,qq=${user_id}]的今日运势为：${luck}——${luckName}\n幸运宠物：${luckyPet}\n幸运料理：${luckyFood}\n${luckyPlace}\n你仿佛听到皮皮拉鱼神在远处低语:"${luckyPoem}"`
+            messages = `[CQ:at,qq=${user_id}]的今日运势为：${luck}：${luckName}你仿佛听到皮皮拉鱼神在远处低语:"${luckyPoem}"幸运宠物：${luckyPet}\n幸运料理：${luckyFood}\n众神庇佑的钓场：${luckyPlace}`
             ban.banList.push(user_id);
             return{messages,luck,luckyFood,luckyPet,luckyPlace,luckyPoem}
         }
@@ -108,7 +108,7 @@ function createLuckInfomation(user_id){
         luckyPlace = luckyPlacesList[placeIndex];
         luckyPet = luckyPetsList[petIndex];
         luckyPoem = poemList[poemIndex];
-        messages = `[CQ:at,qq=${user_id}]的今日运势为：${luck}——${luckName}\n幸运宠物：${luckyPet}\n幸运料理：${luckyFood}\n十二神守护之地：${luckyPlace}\n你仿佛听到皮皮拉鱼神在远处低语:"${luckyPoem}"`
+        messages = `[CQ:at,qq=${user_id}]的今日运势为：${luck}：${luckName}你仿佛听到皮皮拉鱼神在远处低语:"${luckyPoem}"幸运宠物：${luckyPet}\n幸运料理：${luckyFood}\n众神庇佑的钓场：${luckyPlace}`
         ban.banList.push(user_id);
         return{messages,luck,luckyFood,luckyPet,luckyPlace,luckyPoem}
     }
