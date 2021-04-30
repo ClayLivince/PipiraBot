@@ -78,7 +78,7 @@ function createBlessInfomation(user_id){
                 }
                 else if(luck>=3&&luck<=43){
                     var gameIndex = Math.floor((Math.random()*gameLists.length))
-                    messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是只是在玩一款叫《${gameLists[gameIndex]}》的游戏。看来下次出海只能靠你自己了。`
+                    messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是{${gameLists[gameIndex].details}}一款叫《${gameLists[gameIndex].game}》的游戏。看来下次出海只能靠你自己了。`
                 }
                 else{
                     //好运哦
@@ -104,7 +104,7 @@ function createBlessInfomation(user_id){
             }
             else if(luck>=3&&luck<=43){
                 var gameIndex = Math.floor((Math.random()*gameLists.length))
-                messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是在玩一款叫《${gameLists[gameIndex]}》的游戏。看来下次出海只能靠你自己了。`
+                messages = `在祈福之后，[CQ:at,qq=${user_id}]没有得到任何回应。神明是忙碌的，他们可能在忙着筹划一场战争，亦或是{${gameLists[gameIndex].details}}在玩一款叫《${gameLists[gameIndex]}.game》的游戏。看来下次出海只能靠你自己了。`
             }
             else{
                 //好运哦

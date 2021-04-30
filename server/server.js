@@ -57,7 +57,7 @@ axios.post('http://localhost:5700'+'/get_group_list',{},{headers:{'Content-Type'
         groupList.push(group_msg.group_id)
     })
 })
-
+console.log(groupList);
 app.listen(5702); //服务器启动
 setInterval(function(){ //定时广播
     let messages = fishAlarm();
