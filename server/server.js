@@ -35,19 +35,29 @@ function sendGroupMessage(port,group_id,message){
 
 app.use(async ctx =>{
     //现在需要先判断然后传递不同的参数
-    var serverName = groupLists[ctx.request.body.group_id];
-    if(!serverName){serverName = "default"};
-    let func = cmd2func[serverName];
-    let results = func(ctx);
-    let messages = results.message;
-    let log = results.log;
-    let port = results.port;
-    messages.forEach((message,index)=>{
-        if(message){
-        sendGroupMessage(port,ctx.request.body.group_id,message);
-        fs.appendFile('../log/log.txt',JSON.stringify(log[index])+'\n',()=>{})
+    if(ctx.request.body.message_type == 'group'){
+        var serverName = groupLists[ctx.request.body.group_id];
+        if(!serverName){serverName = "default"};
+        let func = cmd2func[serverName];
+        let results = func(ctx);
+        let messages = results.message;
+        let log = results.log;
+        let port = results.port;
+        messages.forEach((message,index)=>{
+            if(message){
+            sendGroupMessage(port,ctx.request.body.group_id,message);
+            fs.appendFile('../log/log.txt',JSON.stringify(log[index])+'\n',()=>{})
+            }
+        })
+    }
+    else if(ctx.request.body.message_type == 'private'){
+        if(ctx.request.body.user_id == 360354542){
+            message = ctx.request.body.message;
+            groupList.forEach((group)=>{
+                sendGroupMessage('5701',group,message);
+            })
         }
-    })
+    }
     //record data to files by consumer.
 })
 
