@@ -8,7 +8,7 @@ class luckConsumerClass extends Consumer{
     }
     static valid(ctx){
         let validMessage = ctx.request.body.message;
-        return validMessage == '占卜' || validMessage == '今日运势' || validMessage == 'luck';
+        return validMessage == '占卜' || validMessage == '今日运势' || validMessage == 'luck'||validMessage == '/占卜';
     }
     work(){
         let id = this.ctx.request.body.user_id;
