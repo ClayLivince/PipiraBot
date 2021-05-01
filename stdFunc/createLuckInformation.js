@@ -3,8 +3,9 @@ var ban = {
     "dayPast":-1,
     "banList":[],
 }; 
-var luckyFoodList = ["炸蟹饼","胡椒炒新薯","咖啡曲奇"];
+var luckyFoodList = ["炸蟹饼","乌贼墨汁炒饭","咖啡曲奇","胡椒炒新薯","煎蘑菇","金平糖","长颈骆焗菜","游牧民风味肉饼","煮杂菜","荞麦糊","鲜红罗兰莓派","包心卡贝基","千层长颈驼炖野菜","千层长颈驼焗野菜","菜包肉","菠菜乳蛋饼","泽梅尔加风味焗菜","陷阱草沙拉","番茄派","清炖牛肉","王冠蛋糕","猎人风味水蜥饼","香烩时蔬","酸泡菜","血红奇异果挞","鳄梨色拉","清炖鬼鮟鱇","鳗鱼派","煎菠菜","牧羊人派","清炖羚羊肉","苹果挞","小扁豆煮山栗","烤仙人掌叶","兔形派","杂煮","清炖羊肉"];
 var luckyPetsList = ["发条月亮","魔法水桶","手指光标","迷你命名威","小熊猫","青鸟","南方度假獭獭","触手","祭典鲶鱼精","鲨鱼指挥官","巴哈姆特之型","白鼬","蓝闪蝶","小树袋熊","猫小胖"];
+var luckyColorsList = ["玉米黄","深林绿","天上蓝","靛青蓝","虚空蓝","蜂鸟粉","日落橙","钴铁棕","口花绿","东洲蓝","风暴蓝","仙子梅","素雪白","煤烟黑","罗兰莓","卫月红","果酒红","南瓜橙","沃土棕","蜂蜜黄","猎人绿","魔花绿","皇室蓝","深渊蓝","莲华粉","帝王紫","宝石红","松石绿","炮铜黑","珍珠白","金属铜","金属橙","金属黄","黑暗红","黑暗棕","黑暗绿","黑暗蓝","黑暗紫","金属蓝","金属紫","无暇白","煤玉黑","闪耀银","闪耀金","柔彩粉","柔彩绿","柔彩蓝","柔彩紫","金属红","金属绿","金属靛","金属紫","丁香紫","珊瑚粉","软木棕","哥布林","黄沙棕","妖精绿","牧草绿","苹果绿","金龟绿","罗海蓝","腐尸蓝","阴影蓝","薰衣草","虹膜紫","卢恩棕","山羊棕","橡果棕","页岩棕","猛豹黄","葡干棕","青柠绿","沼泽绿","仙人掌","绿松蓝","海雾蓝","孔雀蓝","盗龙蓝","醋栗紫","苍白灰","古菩灰","石板灰","木炭灰","玫瑰粉","铁锈红","鲜血红","鲑鱼粉","台地红","树皮棕","巧克力","铁锈棕","奥猴棕","果园棕","山栗棕","鼹鼠棕","骸骨白","沙漠黄","奶油黄","日影黄","泥沼绿","苔藓绿","橄榄绿","地神绿","寒冰蓝","天空蓝","青磷蓝","油墨蓝","午夜蓝","忧郁紫","葡萄紫"];
 var luckyPlacesList = [
     "太阳神之扇将出现于广袤湖水中央、熔火烈焰深处",
     "月亮神之瞳将出现于万云翻涌之海、浮城万龙之地",
@@ -30,6 +31,7 @@ function createLuckInfomation(user_id){
     var luckyPlace = "";
     var luckyPet = "";
     var luckyPoem = "";
+    var luckyColor = "";
     var days;
     var hours;
     var minus = Date.now() - standardDate;
@@ -48,8 +50,9 @@ function createLuckInfomation(user_id){
             var luckName = "";
             var luck = Math.floor(Math.random()*100); //0-99生成
             var foodIndex = Math.floor((Math.random()*luckyFoodList.length));
-            var placeIndex = Math.floor((hours/2));
+            var placeIndex = Math.floor((Math.random()*luckyPlacesList.length));
             var petIndex = Math.floor((Math.random()*luckyPetsList.length));
+            var colorIndex = Math.floor((Math.random()*luckyColorsList.length));
             var poemList = [];
             if(luck<=24){
                 luckName = "凶";
@@ -72,9 +75,10 @@ function createLuckInfomation(user_id){
             luckyPlace = luckyPlacesList[placeIndex];
             luckyPet = luckyPetsList[petIndex];
             luckyPoem = poemList[poemIndex];
-            messages = `[CQ:at,qq=${user_id}]的今日运势为：${luck}—${luckName}。你仿佛听到皮皮拉鱼神在远处低语:"${luckyPoem}"\n幸运宠物：${luckyPet}\n幸运料理：${luckyFood}\n众神庇佑的钓场：${luckyPlace}`
+            luckyColor = luckyColorsList[colorIndex];
+            messages = `[CQ:at,qq=${user_id}]的今日运势为：${luck}—${luckName}。你仿佛听到皮皮拉鱼神在远处低语:"${luckyPoem}"\n幸运宠物：${luckyPet}\n幸运颜色：${luckyColor}\n幸运料理：${luckyFood}\n众神庇佑的钓场：${luckyPlace}`
             ban.banList.push(user_id);
-            return{messages,luck,luckyFood,luckyPet,luckyPlace,luckyPoem}
+            return{messages,luck,luckyFood,luckyPet,luckyPlace,luckyPoem,luckyColor}
         }
     }
     else{
@@ -84,8 +88,9 @@ function createLuckInfomation(user_id){
         var luckName = "";
         var luck = Math.floor(Math.random()*100); //0-99生成
         var foodIndex = Math.floor((Math.random()*luckyFoodList.length));
-        var placeIndex = Math.floor((hours/2));
+        var placeIndex = Math.floor((Math.random()*luckyPlacesList.length));
         var petIndex = Math.floor((Math.random()*luckyPetsList.length));
+        var colorIndex = Math.floor((Math.random()*luckyColorsList.length));
         var poemList = [];
         if(luck<=24){
             luckName = "凶";
@@ -108,9 +113,10 @@ function createLuckInfomation(user_id){
         luckyPlace = luckyPlacesList[placeIndex];
         luckyPet = luckyPetsList[petIndex];
         luckyPoem = poemList[poemIndex];
-        messages = `[CQ:at,qq=${user_id}]的今日运势为：${luck}—${luckName}。你仿佛听到皮皮拉鱼神在远处低语:"${luckyPoem}"\n幸运宠物：${luckyPet}\n幸运料理：${luckyFood}\n众神庇佑的钓场：${luckyPlace}`
+        luckyColor = luckyColorsList[colorIndex];
+        messages = `[CQ:at,qq=${user_id}]的今日运势为：${luck}—${luckName}。你仿佛听到皮皮拉鱼神在远处低语:"${luckyPoem}"\n幸运宠物：${luckyPet}\n幸运颜色：${luckyColor}\n幸运料理：${luckyFood}\n众神庇佑的钓场：${luckyPlace}`
         ban.banList.push(user_id);
-        return{messages,luck,luckyFood,luckyPet,luckyPlace,luckyPoem}
+        return{messages,luck,luckyFood,luckyPet,luckyPlace,luckyPoem,luckyColor}
     }
 }
 module.exports = createLuckInfomation

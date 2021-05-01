@@ -25,6 +25,7 @@ class luckConsumerClass extends Consumer{
                 "luckyPlace":result.luckyPlace,
                 "luckyPet":result.luckyPet,
                 "luckyPoem":result.luckyPoem,
+                "luckyColor":result.luckyColor,
             }
         }
     }
