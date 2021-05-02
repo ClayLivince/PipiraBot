@@ -35,7 +35,7 @@ function sendGroupMessage(port,group_id,message){
 
 app.use(async ctx =>{
     //现在需要先判断然后传递不同的参数
-    if(ctx.request.body.message_type == 'group'){
+    if(ctx.request.body.message_type == 'group'||ctx.request.body.notice_type == 'group_increase'){
         var serverName = groupLists[ctx.request.body.group_id];
         if(!serverName){serverName = "default"};
         let func = cmd2func[serverName];
