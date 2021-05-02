@@ -15,6 +15,7 @@ function cmd2func(ctx){
     var message = [];
     var log = [];
     var port = '0';
+    console.log(consumerList[0].valid(ctx))
     /**
      * @param ctx : the ctx come from the input message.
      * @return return the messages array.
