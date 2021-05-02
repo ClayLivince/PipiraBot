@@ -1,6 +1,6 @@
 const Consumer = require('../consumers/Consumer');
 const welcomeMessages = require('../resources/welcomeMessages');
-class welconeConsumerClass extends Consumer{
+class welcomeConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
         this.port = '5701';
@@ -10,12 +10,13 @@ class welconeConsumerClass extends Consumer{
         return ctx.request.body.notice_type &&  ctx.request.body.notice_type == 'group_increase';
     }
     work(){
+        console.log("group_increase works");
         this.message[0] = `[CQ:at,qq=${this.ctx.request.body.user_id}]`+welcomeMessages[this.serverName];
         this.log = {
             "group":this.ctx.request.body.group_id,
-            "type":"welocome",
+            "type":"welcome",
             "date":Date.now(),
         }
     }
 }
-module.exports = welconeConsumerClass;
+module.exports = welcomeConsumerClass;

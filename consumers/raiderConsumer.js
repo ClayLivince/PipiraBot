@@ -1,4 +1,5 @@
 const nickName = require('../resources/nickName');
+const famousData = require('../resources/famousData');
 const fishCauculation = require('../stdFunc/fishCauculation');
 const results2cdmessages = require('../stdFunc/results2cdmessages');
 const raider = require('../resources/raider');
@@ -23,6 +24,7 @@ class raiderConsumerClass extends Consumer{
         this.message[1] = results2cdmessages(results,2);
         if(this.message[1]!=null){this.message[1]+="(*╹▽╹*)"}
         this.message[0] = (raider[fishName]?raider[fishName]:null);
+        if(this.message[0]!=null){this.message[0] += (famousData[fishName]?`\n想查看前辈们与这条鱼奋斗的光荣历史吗？输入“名人堂 ${fishName}”领略钓鱼名人的风姿！`:'');}
         this.log = {
             "id":this.ctx.request.body.user_id,
             "type":"raider",

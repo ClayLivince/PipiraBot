@@ -8,7 +8,8 @@ const welcomeMessageConsumerClass = require('../consumers/welcomeMessageConsumer
 const blessConsumerClass = require('../consumers/blessConsumer');
 const randomConsumerClass = require('../consumers/randomConsumer');
 const luckConsumerClass = require('../consumers/luckConsumer');
-let consumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass];
+const famousConsumerClass = require('../consumers/famousConsumer');
+let consumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass];
 const parameter = "default";
 function cmd2func(ctx){
     var message = [];
