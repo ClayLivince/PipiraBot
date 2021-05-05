@@ -1,5 +1,6 @@
 const Consumer = require('../consumers/Consumer');
 const famousData = require('../resources/famousData');
+const nickName = require('../resources/nickName');
 class famousConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
@@ -14,6 +15,7 @@ class famousConsumerClass extends Consumer{
         var contentMessage = this.ctx.request.body.message;
         var dealtMessage = contentMessage.trim().split(/\s+/);
         dealtMessage.shift();
+        if(nickName[dealtMessage[0]]){dealtMessage[0] = nickName[dealtMessage[0]]}
         if(dealtMessage.length!==1){
             this.message[0] = null;
         }
