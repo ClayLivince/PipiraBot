@@ -12,7 +12,7 @@ class helpConsumerClass extends Consumer{
     }
     work(){
         
-        this.message[0] = `[CQ:image,file=../resources/picture/help.png,type=show]`;
+        this.message[0] = `[CQ:image,file=https://ftp.bmp.ovh/imgs/2021/05/0071695ab6ecf8e5.png,type=show]`;
         this.log = {
             "id":this.ctx.request.body.user_id,
             "type":"help",
