@@ -12,7 +12,6 @@ class seaLineConsumerClass extends Consumer{
     }
     work(){
         this.message[0] = createSeaFishingInfomation();
-        this.message[0] += `\n !!! 警惕斑鸠人（http://guilt.ws/ ）现身海钓努力号，幻登海王虚无王座，快乐海钓请远离。`
         this.log = {
             "group":this.ctx.request.body.group_id,
             "id":this.ctx.request.body.user_id,

@@ -12,13 +12,13 @@ class fourKingsConsumerClass extends Consumer{
         return (validMessage&&(validMessage=="四大天王"||validMessage == "/四大天王"))
     }
     work(){
-        let nameList = ["红龙","云海蝴蝶螺","沙里贝涅","胸脊鲨","雕塑家"];
+        let nameList = ["红龙","云海蝴蝶螺","沙里贝涅","雕塑家"];
         this.message[0] = ""; //No undefined!
         nameList.forEach((name)=>{
             var results = fishCauculation(name);
             this.message[0] += results2cdmessages(results,1);
         })
-        this.message[0] += "四大天王有五个可是常识啊!"
+        this.message[0] += "四大天王只有四个才是常识啊!"
         this.log = {
             "id":this.ctx.request.body.user_id,
             "type":"fourKings",
