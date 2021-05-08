@@ -1,5 +1,4 @@
 const Consumer = require('../consumers/Consumer');
-require('../resources/picture/help.png')
 class helpConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
