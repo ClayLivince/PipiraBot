@@ -19,7 +19,7 @@ class commonQuesClass extends Consumer{
         }
         else if(dealtMessage.length==1){
             if(commonQues[dealtMessage[0]]){
-                this.message[0] = `[CQ:at,qq=${ctx.request.body.user_id}] ${commonQues[dealtMessage[0]]}`;
+                this.message[0] = `[CQ:at,qq=${this.ctx.request.body.user_id}] ${commonQues[dealtMessage[0]]}`;
             }
         }
         this.log = {
