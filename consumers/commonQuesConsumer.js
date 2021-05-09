@@ -14,12 +14,13 @@ class commonQuesClass extends Consumer{
         var contentMessage = this.ctx.request.body.message;
         var dealtMessage = contentMessage.trim().split(/\s+/);
         dealtMessage.shift();
+        console.log(dealtMessage);
         if(dealtMessage.length==0){
             this.message[0] = `[CQ:image,file=https://z3.ax1x.com/2021/05/09/gYcWHe.png]`;
         }
         else if(dealtMessage.length==1){
             if(commonQues[dealtMessage[0]]){
-                this.message[0] = `[CQ:at,qq=${ctx.request.body.user_id}]${commonQues[dealtMessage[0]]}`;
+                this.message[0] = `[CQ:at,qq=${ctx.request.body.user_id}] ${commonQues[dealtMessage[0]]}`;
             }
         }
         this.log = {
