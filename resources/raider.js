@@ -235,7 +235,7 @@ var raider = {
     "龙之孙": "红玉海（小林丸附近）全天气全时段，全部鱼叉皆可用，<在小林丸附近叉圆刺燕鱼x7（小叉）触发鱼影>",
     "大方士": "1.首先在<沉没江船附近>1.开始捕鱼，不要去了其他渔场（相隔很紧很容易游错）。2.其次注意用< 鲨鱼之眼II >发现70级的鱼影. 其他等级的不要。3.采集<鱼龙 X7>，记得用大叉哦，可以配合<熟练技巧>增加鱼龙概率。4.提示：<在某处出现了鱼影！！>，发动<海洋之相 >找到隐藏鱼影。5.在隐藏鱼影采集<大方士>，一次没采集够的重复上述。",
     "苦尔鳗": "红玉海（红玉炮台近海）打雷转阴云ET0:00-3:59，钓饵是蓝矶沙蚕<无尽的轮回的开始，当你钓上了它，说明你已经开始了，祝你欧气满满，苦尔鳗爱你哦>",
-    "新人":"渔夫新手攻略（七生烟火@摩杜纳）：https://bbs.nga.cn/read.php?tid=20810560\n宝图钓场（agiyro）：https://bbs.nga.cn/read.php?tid=7388649\n 鱼眼改动与影响一览（梦洄子时@红玉海）：https://ngabbs.com/read.php?tid=26245434\n钓场分布（言小叶yxy@红玉海）https://ngabbs.com/read.php?tid=18140243 \n 感谢以上攻略作者！",
+    "新人":"渔夫新手攻略（七生烟火@摩杜纳）：https://bbs.nga.cn/read.php?tid=20810560\n宝图钓场（agiyro）：https://bbs.nga.cn/read.php?tid=7388649\n 鱼眼改动与影响一览（梦洄子时@红玉海）：https://ngabbs.com/read.php?tid=26245434\n钓场分布（言小叶yxy@红玉海）https://ngabbs.com/read.php?tid=18140243 \n 钓场范围提示（轩辕十四@沃仙曦染）https://bbs.nga.cn/read.php?tid=24154533\n感谢以上攻略作者！",
     "新手":"渔夫新手攻略（七生烟火@摩杜纳）：https://bbs.nga.cn/read.php?tid=20810560\nG1~G5宝图钓场（agiyro）：https://bbs.nga.cn/read.php?tid=7388649\n 鱼眼改动与影响一览（梦洄子时@红玉海）：https://ngabbs.com/read.php?tid=26245434\n钓场分布（言小叶yxy@红玉海）https://ngabbs.com/read.php?tid=18140243 \n 感谢以上攻略作者！",
     "成就":"碧海/密林/黄沙之王系列（梦洄子时@红玉海）：https://bbs.nga.cn/read.php?tid=22898875\n 烟波钓徒攻略（月咏泠音@摩杜纳）：https://bbs.nga.cn/read.php?tid=18484723\n烟波钓徒攻略（谈清若风柔@神拳痕）：https://ngabbs.com/read.php?tid=23672580\n 鱼王鱼皇视频（沾到油@静语庄园）：https://space.bilibili.com/17759606 \n 感谢以上攻略作者！" ,
     "海钓":"5.4海钓攻略大纲（Sterne@红玉海）https://nga.178.com/read.php?tid=26626276\n5.4海钓图志（月咏泠音@摩杜纳）：https://bbs.nga.cn/read.php?tid=26210039\n 5.4海钓（轩辕十四@沃仙曦染）：https://bbs.nga.cn/read.php?tid=25905000\n5.2海钓手册（月咏泠音@摩杜纳）：https://bbs.nga.cn/read.php?tid=20553241 \n感谢以上攻略作者！",

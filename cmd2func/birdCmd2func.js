@@ -9,7 +9,8 @@ const blessConsumerClass = require('../consumers/blessConsumer');
 const randomConsumerClass = require('../consumers/randomConsumer');
 const luckConsumerClass = require('../consumers/luckConsumer');
 const famousConsumerClass = require('../consumers/famousConsumer');
-let consumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass];
+const commonQuesClass = require('../consumers/commonQuesConsumer');
+let consumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass];
 const parameter = "bird";
 function cmd2func(ctx){
     var message = [];

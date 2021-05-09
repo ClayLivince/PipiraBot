@@ -80,6 +80,7 @@ function createBlessInfomation(user_id){
                     var specialIndex = Math.floor(Math.random()*(special.length));
                     messages = `[CQ:at,qq=${user_id}],`;
                     messages+= special[specialIndex];
+                    luck = luck - specialIndex //用于记录logs
                 }
                 else if(luck<3&&luck!=0){
                     messages = `${line.curseContent}不知为何，[CQ:at,qq=${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
@@ -111,6 +112,7 @@ function createBlessInfomation(user_id){
                 var specialIndex = Math.floor(Math.random()*(special.length));
                 messages = `[CQ:at,qq=${user_id}],`;
                 messages+= special[specialIndex];
+                luck = luck - specialIndex //用于记录logs
             }
             else if(luck<3){
                 messages = `${line.curseContent}不知为何，[CQ:at,qq=${user_id}]，你似乎触怒了这位神灵，下次出海恐怕是凶多吉少，只能祝你好自为之了。`
