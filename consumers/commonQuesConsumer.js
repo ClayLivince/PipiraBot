@@ -8,13 +8,12 @@ class commonQuesClass extends Consumer{
     }
     static valid(ctx){
         let validMessage = ctx.request.body.message;
-        return validMessage == "常见问题" || validMessage == "[CQ:at,qq=1497015422]"|| validMessage == "/常见问题"; 
+        return validMessage.indexOf("常见问题") == 0 || validMessage == "[CQ:at,qq=1497015422]"|| validMessage.indexOf("/常见问题") == 0; 
     }
     work(){
         var contentMessage = this.ctx.request.body.message;
         var dealtMessage = contentMessage.trim().split(/\s+/);
         dealtMessage.shift();
-        console.log(dealtMessage);
         if(dealtMessage.length==0){
             this.message[0] = `[CQ:image,file=https://z3.ax1x.com/2021/05/09/gYcWHe.png]`;
         }
