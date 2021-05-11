@@ -9,11 +9,11 @@ class versionKingsConsumerClass extends Consumer{
         this.work();
     }
     static valid(ctx){
-        let validMessage = ctx.request.body.message;
+        let validMessage = this.ctx.request.body.message;
         return validMessage && validMessage.indexOf("鱼王") == 3;
     }
     work(){
-        let contentMessage = ctx.request.body.message;
+        let contentMessage = this.ctx.request.body.message;
         let version = contentMessage.slice(0,3);
         let nameList = [];
         if(versionKings[version]){
