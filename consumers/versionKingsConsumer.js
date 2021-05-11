@@ -13,6 +13,7 @@ class versionKingsConsumerClass extends Consumer{
         return validMessage && validMessage.indexOf("鱼王") == 3;
     }
     work(){
+        this.message[0] = "";
         let contentMessage = this.ctx.request.body.message;
         let version = contentMessage.slice(0,3);
         let nameList = [];
