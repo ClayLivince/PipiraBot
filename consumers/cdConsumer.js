@@ -15,7 +15,7 @@ class cdConsumerClass extends Consumer{
     work(){
         let contentMessage = this.ctx.request.body.message;
         let fishName = contentMessage.slice(0,contentMessage.length-2);
-        fishName = fishName.replace(/\+/g,"").replace(/[\r\n]/g,"");
+        fishName = fishName.trim(); //处理空格
         if(fishName[0] == '/'){fishName = fishName.slice(1)};
         if(nickName[fishName]){fishName = nickName[fishName]};
         let results = fishCauculation(fishName);

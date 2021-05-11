@@ -4946,7 +4946,7 @@ const DATA = {
         },
         16745: {
             _id: 16745,
-            previousWeatherSet: [15],
+            previousWeatherSet: [15,16],
             weatherSet: [16],
             startHour: 0,
             endHour: 24,
