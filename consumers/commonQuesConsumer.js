@@ -8,7 +8,7 @@ class commonQuesClass extends Consumer{
     }
     static valid(ctx){
         let validMessage = ctx.request.body.message;
-        return validMessage && (validMessage.indexOf("常见问题") == 0 || validMessage == "[CQ:at,qq=1497015422]"|| validMessage.indexOf("/常见问题")) == 0; 
+        return validMessage && (validMessage.indexOf("常见问题") == 0 || validMessage == "[CQ:at,qq=1497015422]"|| validMessage.indexOf("/常见问题") == 0 ); 
     }
     work(){
         var contentMessage = this.ctx.request.body.message;
