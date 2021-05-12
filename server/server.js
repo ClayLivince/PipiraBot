@@ -52,9 +52,15 @@ app.use(async ctx =>{
     }
     else if(ctx.request.body.message_type == 'private'){
         if(ctx.request.body.user_id == 360354542){
-            message = ctx.request.body.message;
-            groupList.forEach((group)=>{
-                sendGroupMessage('5701',group,message);
+            axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
+                var groupList = [];
+                res.data.data.forEach((group_msg)=>{
+                    groupList.push(group_msg.group_id)
+                })
+                message = ctx.request.body.message;
+                groupList.forEach((group)=>{
+                    sendGroupMessage('5701',group,message,true);
+                })
             })
         }
     }
