@@ -3,7 +3,7 @@ var createLuckInformation = require('../stdFunc/createLuckInformation');
 class luckConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
-        this.port = '5701';
+        this.port = '5700';
         this.work();
     }
     static valid(ctx){
