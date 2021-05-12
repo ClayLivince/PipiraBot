@@ -61,7 +61,6 @@ app.use(async ctx =>{
     //record data to files by consumer.
 })
 
-console.log(groupList);
 app.listen(5702); //服务器启动
 setInterval(function(){ //定时广播
     axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
