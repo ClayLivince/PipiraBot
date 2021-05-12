@@ -6,6 +6,7 @@ var axios = require('axios');
 var birdCmd2func = require('../cmd2func/birdCmd2func');
 var pigCmd2func = require('../cmd2func/pigCmd2func');
 var catCmd2func = require('../cmd2func/catCmd2func');
+var redFishCmd2func = require('../cmd2func/redFishCmd2func.js');
 var defaultCmd2func = require('../cmd2func/defaultCmd2func');
 var fishAlarm = require('../timeConsumer/fishAlarm');
 var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
@@ -13,11 +14,13 @@ var groupLists = { //This is the groupList and default is bird
     614011147:"bird",
     122745078:"pig",
     937306333:"cat",
+    1153646847:"redFish",
 }
 var cmd2func = {
     "bird":birdCmd2func,
     "pig":pigCmd2func,
     "cat":catCmd2func,
+    "redFish":redFishCmd2func,
     "default":defaultCmd2func,
 }
 var app = new Koa();

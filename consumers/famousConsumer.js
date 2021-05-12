@@ -9,7 +9,7 @@ class famousConsumerClass extends Consumer{
     }
     static valid(ctx){
         var validMessage = ctx.request.body.message;
-        return validMessage && (validMessage.indexOf("名人堂")==0) 
+        return validMessage && (validMessage.indexOf("传说")==0 || validMessage.indexOf("名人堂")==0) 
     }
     work(){
         var contentMessage = this.ctx.request.body.message;

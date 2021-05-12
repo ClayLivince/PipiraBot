@@ -5,6 +5,8 @@ var welcomeMessgaes = {
 
     "pig":"欢迎来到猪区钓鱼群！\n请更改群昵称为ID-区服～\n本群时钟Bot提供时钟报时以及钓鱼攻略的服务具体使用方法可输入‘帮助’或者‘/help’进行查看。\n钓鱼时钟推荐使用鱼糕时钟： https://ricecake.traveleorzea.com/#/ 以及鱼糕时钟桌面版，桌面版下载链接在网页版中。\n各种攻略见群公告和群文件！最后希望您在本群玩的开心！\n ",
 
+    "redFish":"欢迎加入鱼糕群，有疑问请先输入“常见问题”或者@皮皮拉鱼bot根据bot提示查询\n[CQ:image,file=https://z3.ax1x.com/2021/05/12/gwjMwV.jpg]",
+
     "default":"欢迎来到本群！\n请更改群昵称为ID-区服～\n本群时钟Bot提供时钟报时以及钓鱼攻略的服务具体使用方法可输入‘帮助’或者‘/help’进行查看。\n钓鱼时钟推荐使用鱼糕时钟： https://ricecake.traveleorzea.com/#/ 以及鱼糕时钟桌面版，桌面版下载链接在网页版中。\n各种攻略见群公告和群文件！最后希望您在本群玩的开心！\n ",
 }
 module.exports = welcomeMessgaes;
