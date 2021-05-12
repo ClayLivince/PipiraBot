@@ -61,19 +61,22 @@ app.use(async ctx =>{
     //record data to files by consumer.
 })
 
-var groupList = [];
-axios.post('http://localhost:5700'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
-    res.data.data.forEach((group_msg)=>{
-        groupList.push(group_msg.group_id)
-    })
-})
 console.log(groupList);
 app.listen(5702); //服务器启动
 setInterval(function(){ //定时广播
-    let messages = fishAlarm();
-    messages.forEach((message)=>{
-        groupList.forEach((group)=>{
-            sendGroupMessage('5701',group,message);
+    axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
+        var groupList = [];
+        var validGroups = [614011147,122745078,937306333,729794406,878312744];
+        res.data.data.forEach((group_msg)=>{
+            groupList.push(group_msg.group_id)
+        })
+        let messages = fishAlarm();
+        messages.forEach((message)=>{
+            groupList.forEach((group)=>{
+                if(validGroups.indexOf(group)!=-1 || (Date.now()<8||Date.now()>=23)){
+                    sendGroupMessage('5701',group,message);
+                }
+            })
         })
     })
 },60000);
