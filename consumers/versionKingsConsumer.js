@@ -10,7 +10,7 @@ class versionKingsConsumerClass extends Consumer{
     }
     static valid(ctx){
         let validMessage = ctx.request.body.message;
-        return validMessage && validMessage.indexOf("鱼王") == 3;
+        return validMessage && validMessage.slice(3,validMessage.length) == ("鱼王");
     }
     work(){
         this.message[0] = "";
