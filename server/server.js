@@ -81,7 +81,7 @@ setInterval(function(){ //定时广播
         let messages = fishAlarm();
         messages.forEach((message)=>{
             groupList.forEach((group)=>{
-                if(validGroups.indexOf(group)!=-1 || (Date.now()<8||Date.now()>=23)){
+                if(validGroups.indexOf(group)!=-1 || (new Date().getHours()>=8 && new Date().getHours()<23)){
                     sendGroupMessage('5701',group,message);
                 }
             })
