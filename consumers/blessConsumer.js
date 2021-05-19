@@ -20,6 +20,7 @@ class blessConsumerClass extends Consumer{ //新类
             "date":Date.now(),
             "group":this.ctx.request.body.group_id,
             "content":{
+                "repeat":result.repeat,
                 "luck":result.luck,
                 "sail":result.bless,
                 "game":result.game,

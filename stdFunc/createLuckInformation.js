@@ -1,7 +1,7 @@
 var standardDate = new Date('2021-4-30').getTime();
 var ban = {
     "dayPast":-1,
-    "banList":[],
+    "banList":{},
 }; 
 var luckyFoodList = ["炸蟹饼","乌贼墨汁炒饭","咖啡曲奇","胡椒炒新薯","煎蘑菇","金平糖","长颈骆焗菜","游牧民风味肉饼","煮杂菜","荞麦糊","鲜红罗兰莓派","包心卡贝基","千层长颈驼炖野菜","千层长颈驼焗野菜","菜包肉","菠菜乳蛋饼","泽梅尔家风味焗菜","陷阱草沙拉","番茄派","清炖牛肉","王冠蛋糕","猎人风味水蜥饼","香烩时蔬","酸泡菜","血红奇异果挞","鳄梨色拉","清炖鬼鮟鱇","鳗鱼派","煎菠菜","牧羊人派","清炖羚羊肉","苹果挞","小扁豆煮山栗","烤仙人掌叶","兔形派","杂煮","清炖羊肉"];
 var luckyPetsList = ["发条月亮","魔法水桶","手指光标","迷你命名威","小熊猫","青鸟","南方度假獭獭","触手","祭典鲶鱼精","鲨鱼指挥官","巴哈姆特之型","白鼬","蓝闪蝶","小树袋熊","食果花鼠","莫莫拉·莫拉！！！","蝴蝶效应","衣匠猴面雀儿","宝宝箱","虎斑次郎","发条提灯","常风王子","獭獭","小妖狐","","迷你斯卡哈","淘气南加","发条卫月","小脚雪人","喜鹊儿","恩奇都","凯西幼苗","朱孔雀","椒盐海豹","复活小天使","草小人","阿马罗宝宝","水小滴","黄金大河狸","肥肥风筝猫","辅助机316","多玛金鱼儿","狐獴","小刺猬","迷你巨人掌","猪小仙","叮叮摇铃","奇塔利的水蛇？","得到宽恕的仇恨","小雪童子","魔法扫帚","企鹅王子","猫头小鹰","萌神乐团","分福","吉吉","浅瞳","白小虎","月读之形","银山雀儿","小小冰海天使","黑豆柴","仙子人偶","亚拉戈西瓜","拉拉鳄","啦哩吼矮人","猫秘玩偶","大哥布林人偶","小鸭嘴兽","泥小点","迷你欧米茄","阳小灵","夺心小魔","魔菇宝"];
@@ -41,9 +41,9 @@ function createLuckInfomation(user_id){
     }
     if(ban.dayPast == days){
         //不需要更新banlist
-        if(ban.banList.indexOf(user_id)!=-1){
+        if(ban.banList[user_id]){
             //祈福过了
-            messages = `[CQ:at,qq=${user_id}]","皮皮拉鱼神的神力有限","每天只能占卜一次哦`
+            messages = ban.banList[user_id]
             return {messages};
         }
         else{
@@ -77,13 +77,13 @@ function createLuckInfomation(user_id){
             luckyPoem = poemList[poemIndex];
             luckyColor = luckyColorsList[colorIndex];
             messages = `[CQ:at,qq=${user_id}]的今日运势为：${luck}—${luckName}。你仿佛听到皮皮拉鱼神在远处低语:"${luckyPoem}"\n幸运宠物：${luckyPet}\n幸运颜色：${luckyColor}\n幸运料理：${luckyFood}\n众神庇佑的钓场：${luckyPlace}`
-            ban.banList.push(user_id);
+            ban.banList[user_id] = messages;
             return{messages,luck,luckyFood,luckyPet,luckyPlace,luckyPoem,luckyColor}
         }
     }
     else{
         //需要更新banlist
-        ban.banList = []; //empty the list
+        ban.banList = {}; //empty the list
         ban.dayPast = days;
         var luckName = "";
         var luck = Math.floor(Math.random()*100); //0-99生成
@@ -115,7 +115,7 @@ function createLuckInfomation(user_id){
         luckyPoem = poemList[poemIndex];
         luckyColor = luckyColorsList[colorIndex];
         messages = `[CQ:at,qq=${user_id}]的今日运势为：${luck}—${luckName}。你仿佛听到皮皮拉鱼神在远处低语:"${luckyPoem}"\n幸运宠物：${luckyPet}\n幸运颜色：${luckyColor}\n幸运料理：${luckyFood}\n众神庇佑的钓场：${luckyPlace}`
-        ban.banList.push(user_id);
+        ban.banList[user_id] = messages;
         return{messages,luck,luckyFood,luckyPet,luckyPlace,luckyPoem,luckyColor}
     }
 }

@@ -4,7 +4,7 @@ var gameLists = require('../resources/gameLists');
 var standardDay = new Date('2021-4-6 22:15:00').getTime();
 var ban = {
     "blessName":"",
-    "banList":[]
+    "banList":{}
 }
 var special = ["时间神：“时光流转，岁月年轮如白驹过隙，没有人能逃过时间的制裁。祈祷吧，天地万物，我是时间的管理者——光阴神梦洄子时，接受我的祝福吧。”得到了传说中神明的回应。你感到有大量好运离你而去，仿佛身体被掏空。下次出海，你的幻海时间可能没有也可能缺少一点时间。",
 "祝祷神：“世间表里如一者能有几何，我的言语能够赐予你无上幸运。起舞吧，鲶鱼们，我是赞美与箴言的化身——祝祷神宓汐妍，接受我的祝福吧。”得到了传说中神明的回应。你感到有大量好运离你而去，仿佛身体被掏空。下次出海，你的好运会分给船上的其他人。",
@@ -56,6 +56,7 @@ function createSeaFishingInfomation(){
     return messages;
 }
 function createBlessInfomation(user_id){
+    var repeat = false;
     var messages = '';
     var days;
     var minus = Date.now()-standardDay;
@@ -68,13 +69,13 @@ function createBlessInfomation(user_id){
         var line = linesList[newOrder[segment]];
         if(ban.blessName == line.blessName){
             //如果现在还在banList的时间内
-            if(ban.banList.indexOf(user_id)!=-1){
+            if(ban.banList[user_id]){
                 //禁止重复祈福！
-                messages = `[CQ:at,qq=${user_id}],人无法两次踏入同一条河流，渔夫也无法两次对同一位神明索取祝福。`
+                messages = ban.banList[user_id];
+                repeat = true;
             }
             else{
                 //39%,60%,1%
-                ban.banList.push(user_id); //添加一下banList
                 var luck = Math.floor(Math.random()*100); //0-99生成
                 if(luck == 0){
                     var specialIndex = Math.floor(Math.random()*(special.length));
@@ -101,12 +102,12 @@ function createBlessInfomation(user_id){
                         messages = `${line.blessContent}虔诚的渔夫[CQ:at,qq=${user_id}]得到了神明的回应。你感到有无尽的好运伴随在身旁，下次出海一定会肯定会无比顺利，心想事成。`
                     }
                 }
+                ban.banList[user_id] = messages;
             }
         }
         else{
             ban.blessName = line.blessName; //重置
-            ban.banList = []; //空了
-            ban.banList.push(user_id); //添加一下banList
+            ban.banList = {}; //空了
             var luck = Math.floor(Math.random()*100); //0-99生成
             if(luck == 0){
                 var specialIndex = Math.floor(Math.random()*(special.length));
@@ -133,8 +134,9 @@ function createBlessInfomation(user_id){
                     messages = `${line.blessContent}虔诚的渔夫[CQ:at,qq=${user_id}]得到了神明的回应。你感到有无尽的好运伴随在身旁，下次出海一定会肯定会无比顺利，心想事成。`
                 }
             }
+            ban.banList[user_id] = messages; //添加一下banList
         }
     }
-    return {messages,luck,'bless':line.blessName,'game':gameLists[gameIndex]};
+    return {messages,luck,'bless':line.blessName,'game':gameLists[gameIndex],'repeat':repeat};
 }
 module.exports = {createSeaFishingInfomation,createBlessInfomation}
