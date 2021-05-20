@@ -56,7 +56,7 @@ app.use(async ctx =>{
     if(!group_id){group_id = 00000000} //Private Message
     var nameAndConsumers = groupServerConsumers[group_id];
     if(!nameAndConsumers){nameAndConsumers = groupServerConsumers[88888888];} //Default
-    for(let index = 0; i<nameAndConsumers['consumers'].length;i++){
+    for(let index = 0; index<nameAndConsumers['consumers'].length;index++){
         if(nameAndConsumers['consumers'][index].valid(ctx)){
             var consumer = new nameAndConsumers['consumers'](ctx,nameAndConsumers['name']);
             consumer.work(); //工作
