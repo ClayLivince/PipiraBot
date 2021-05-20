@@ -53,7 +53,7 @@ app.use(bodyParser());
 fullCaculation(); //Cauculation the fullResults
 
 app.use(async ctx =>{
-    console.log(ctx.request.href);
+    console.log(ctx.request.origin);
     var group_id = ctx.request.body.group_id;
     if(!group_id){group_id = 00000000} //Private Message
     var nameAndConsumers = groupServerConsumers[group_id];
