@@ -8,7 +8,7 @@ class priceConsumerClass extends Consumer{
     }
     static valid(ctx){
         let validMessage = ctx.request.body.message;
-        return validMessage && validMessage.indexOf("查价") == 0 || validMessage.indexOf("查询价格") == 0;
+        return validMessage && (validMessage.indexOf("查价") == 0 || validMessage.indexOf("查询价格") == 0);
     }
     work(){
         var contentMessage = this.ctx.request.body.message;
