@@ -8,7 +8,7 @@ class broadcastConsumerClass extends Consumer{
         this.port = '5701';
     }
     static valid(ctx){
-        return ctx.request.body.notice_type && ctx.request.body.notice_type == 'private' && ctx.request.body.user_id == 360354542; 
+        return  ctx.request.body.message_type == 'private' && ctx.request.body.user_id == 360354542; 
     }
     work(){
         axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
