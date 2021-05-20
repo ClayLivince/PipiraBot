@@ -6,7 +6,6 @@ class blessConsumerClass extends Consumer{ //新类
     constructor(ctx,serverName){
         super(ctx,serverName);
         this.port = '5700';
-        this.work(); //构造函数就开干!
     }
     static valid(ctx){
         let validMessage = ctx.request.body.message;

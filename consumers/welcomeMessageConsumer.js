@@ -6,7 +6,6 @@ class welcomeConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
         this.port = '5701';
-        this.work();
     }
     static valid(ctx){
         return ctx.request.body.notice_type &&  ctx.request.body.notice_type == 'group_increase';

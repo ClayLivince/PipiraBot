@@ -6,7 +6,6 @@ class commonQuesClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
         this.port = '5701';
-        this.work();
     }
     static valid(ctx){
         let validMessage = ctx.request.body.message;

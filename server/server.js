@@ -3,6 +3,7 @@ var fs = require('fs');
 var Koa = require('koa');
 var bodyParser = require('koa-bodyparser');
 var axios = require('axios');
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 
 const cdConsumerClass = require('../consumers/cdConsumer');
 const fourKingsConsumerClass = require('../consumers/fourKingsConsumer');
@@ -19,8 +20,6 @@ const commonQuesClass = require('../consumers/commonQuesConsumer');
 
 var fishAlarm = require('../timeConsumer/fishAlarm');
 var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
-const { request } = require('http');
-var defaultConsumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass];
 var groupServerConsumers = { //This is the groupList and default is bird
     614011147:{
         'name':'bird',
