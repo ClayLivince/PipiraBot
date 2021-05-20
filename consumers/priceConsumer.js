@@ -15,7 +15,7 @@ class priceConsumerClass extends Consumer{
         var dealtMessage = contentMessage.trim().split(/\s+/);
         if(dealtMessage[0] == "查价" || dealtMessage[0] == "查询价格"){
             dealtMessage.shift();
-            if(dealtMessage.length!=2){
+            if(dealtMessage.length!=2 || dealtMessage.length!=3){
                 //不处理,自生自灭
             }
             else{
@@ -43,8 +43,9 @@ class priceConsumerClass extends Consumer{
                                 var updateDate = res.data.lastUploadTime;
                                 var data = res.data.listings;
                                 var priceMessage = `${dealtMessage[0]} ${server}的价格是：\n`;
-                                for(let i = 0; i<5; i++){
-                                    priceMessage+=(`${data[i].pricePerUnit}*${data[i].quantity} ${(data[i].hq?"HQ":'')} 售卖人：${data[i].retainerName}\n`)
+                                var count = (data.length<=5?data.length:5);
+                                for(let i = 0; i<count; i++){
+                                    priceMessage+=(`${data[i].pricePerUnit}*${data[i].quantity} ${(data[i].hq?"HQ":'')} 服务器：${data[i].worldName}\n`)
                                 }
                                 priceMessage+=`数据更新时间：${new Date(updateDate).getFullYear()}年${new Date(updateDate).getMonth()+1}月${new Date(updateDate).getDate()}日 ${new Date(updateDate).getHours()}时${new Date(updateDate).getMinutes()}分`;
                                 sendGroupMessage(this.port,this.ctx.request.body.group_id,priceMessage)
