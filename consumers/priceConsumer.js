@@ -24,6 +24,7 @@ class priceConsumerClass extends Consumer{
                 var itemUrl = `https://cafemaker.wakingsands.com/search?string=${item}`;
                 itemUrl = encodeURI(itemUrl);
                 axios.get(itemUrl).then((res)=>{
+                    console.log("itemGotten!");
                     if(res.data.Results!=[]){ //查询的物品对
                         var itemID = res.data.Results[0].ID;
                         var server = dealtMessage[1];
@@ -39,6 +40,7 @@ class priceConsumerClass extends Consumer{
                         var priceUrl = `https://universalis.app/api/${server}/${itemID}`;
                         priceUrl = encodeURI(priceUrl);
                         axios.get(priceUrl).then((res)=>{
+                            console.log("priceGotten!")
                             if(res.data.listings != []){
                                 var updateDate = res.data.lastUploadTime;
                                 var data = res.data.listings;
