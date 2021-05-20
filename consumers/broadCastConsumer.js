@@ -16,7 +16,7 @@ class broadcastConsumerClass extends Consumer{
             res.data.data.forEach((group_msg)=>{
                 groupList.push(group_msg.group_id)
             })
-            message = `[CQ:at,qq=all],${this.ctx.request.body.message}`;
+            var message = `[CQ:at,qq=all],${this.ctx.request.body.message}`;
             groupList.forEach((group)=>{
                 sendGroupMessage('5701',group,message);
             })
