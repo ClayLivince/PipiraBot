@@ -5,6 +5,7 @@ var bodyParser = require('koa-bodyparser');
 var axios = require('axios');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 
+const broadcastConsumerClass = require('../consumers/broadCastConsumer');
 const cdConsumerClass = require('../consumers/cdConsumer');
 const fourKingsConsumerClass = require('../consumers/fourKingsConsumer');
 const helpConsumerClass = require('../consumers/helpConsumer');
@@ -39,7 +40,7 @@ var groupServerConsumers = { //This is the groupList and default is bird
     },
     00000000:{
         'name':'private',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+        'consumers':[broadcastConsumerClass]
     },
     88888888:{
         'name':'default',
@@ -52,7 +53,6 @@ app.use(bodyParser());
 fullCaculation(); //Cauculation the fullResults
 
 app.use(async ctx =>{
-    console.log(ctx.request.origin);
     var group_id = ctx.request.body.group_id;
     if(!group_id){group_id = 00000000} //Private Message
     var nameAndConsumers = groupServerConsumers[group_id];

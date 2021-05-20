@@ -8,7 +8,7 @@ class welcomeConsumerClass extends Consumer{
         this.port = '5701';
     }
     static valid(ctx){
-        return ctx.request.body.notice_type &&  ctx.request.body.notice_type == 'group_increase';
+        return ctx.request.body.notice_type && ctx.request.body.notice_type == 'group_increase';
     }
     work(){
         console.log("group_increase works");
