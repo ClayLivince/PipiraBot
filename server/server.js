@@ -18,25 +18,26 @@ const randomConsumerClass = require('../consumers/randomConsumer');
 const luckConsumerClass = require('../consumers/luckConsumer');
 const famousConsumerClass = require('../consumers/famousConsumer');
 const commonQuesClass = require('../consumers/commonQuesConsumer');
+const priceConsumerClass = require('../consumers/priceConsumer');
 
 var fishAlarm = require('../timeConsumer/fishAlarm');
 var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
 var groupServerConsumers = { //This is the groupList and default is bird
     614011147:{
         'name':'bird',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass]
     },
     122745078:{
         'name':'pig',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass]
     },
     937306333:{
         'name':'cat',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass]
     },
     1153646847:{
         'name':'redFish',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass]
     },
     00000000:{
         'name':'private',
@@ -44,7 +45,7 @@ var groupServerConsumers = { //This is the groupList and default is bird
     },
     88888888:{
         'name':'default',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass]
     }
 }
 
@@ -65,43 +66,6 @@ app.use(async ctx =>{
         }
     }
 })
-
-//这就是Bot的核心函数
-
-
-/*app.use(async ctx =>{
-    //现在需要先判断然后传递不同的参数
-    if(ctx.request.body.message_type == 'group'||ctx.request.body.notice_type == 'group_increase'){
-        var serverName = groupLists[ctx.request.body.group_id];
-        if(!serverName){serverName = "default"};
-        let func = cmd2func[serverName];
-        let results = func(ctx);
-        let messages = results.message;
-        let log = results.log;
-        let port = results.port;
-        messages.forEach((message,index)=>{
-            if(message){
-            sendGroupMessage(port,ctx.request.body.group_id,message);
-            fs.appendFile('../log/log.txt',JSON.stringify(log[index])+'\n',()=>{})
-            }
-        })
-    }
-    else if(ctx.request.body.message_type == 'private'){
-        if(ctx.request.body.user_id == 360354542){
-            axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
-                var groupList = [];
-                res.data.data.forEach((group_msg)=>{
-                    groupList.push(group_msg.group_id)
-                })
-                message = ctx.request.body.message;
-                groupList.forEach((group)=>{
-                    sendGroupMessage('5701',group,message,true);
-                })
-            })
-        }
-    }
-    //record data to files by consumer.
-})*/
 
 app.listen(5702); //服务器启动
 

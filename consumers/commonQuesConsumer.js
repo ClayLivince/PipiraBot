@@ -14,7 +14,7 @@ class commonQuesClass extends Consumer{
     work(){
         var contentMessage = this.ctx.request.body.message;
         var dealtMessage = contentMessage.trim().split(/\s+/);
-        if(dealtMessage[0] == "常见问题" || dealtMessage[0] == "/常见问题"){
+        if(dealtMessage[0] == "常见问题" || dealtMessage[0] == "/常见问题" || dealtMessage[0] == "[CQ:at,qq=1497015422]"){
             dealtMessage.shift();
             if(dealtMessage.length==0){
                 this.message[0] = `[CQ:image,file=https://z3.ax1x.com/2021/05/09/gYcWHe.png]`;
