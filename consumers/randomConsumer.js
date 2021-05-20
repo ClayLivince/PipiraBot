@@ -1,4 +1,6 @@
 const Consumer = require("./Consumer");
+const fs = require('fs');
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 class randomConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
@@ -27,6 +29,8 @@ class randomConsumerClass extends Consumer{
                 "choosen":dealtMessage[randomIndex]
             }
         }
+        sendGroupMessage(this.port,this.ctx.request.body.group_id,this.message[0]); //直接发送消息
+        fs.appendFile('../log/log.txt',JSON.stringify(this.log)+'\n',()=>{});
     }
 }
 module.exports = randomConsumerClass;

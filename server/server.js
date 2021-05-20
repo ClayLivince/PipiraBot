@@ -3,40 +3,71 @@ var fs = require('fs');
 var Koa = require('koa');
 var bodyParser = require('koa-bodyparser');
 var axios = require('axios');
-var birdCmd2func = require('../cmd2func/birdCmd2func');
-var pigCmd2func = require('../cmd2func/pigCmd2func');
-var catCmd2func = require('../cmd2func/catCmd2func');
-var redFishCmd2func = require('../cmd2func/redFishCmd2func.js');
-var defaultCmd2func = require('../cmd2func/defaultCmd2func');
+
+const cdConsumerClass = require('../consumers/cdConsumer');
+const fourKingsConsumerClass = require('../consumers/fourKingsConsumer');
+const helpConsumerClass = require('../consumers/helpConsumer');
+const raiderConsumerClass = require('../consumers/raiderConsumer');
+const seaLineConsumerClass = require('../consumers/seaLineConsumer');
+const versionKingsConsumerClass = require('../consumers/versionKingsConsumer');
+const welcomeMessageConsumerClass = require('../consumers/welcomeMessageConsumer');
+const blessConsumerClass = require('../consumers/blessConsumer');
+const randomConsumerClass = require('../consumers/randomConsumer');
+const luckConsumerClass = require('../consumers/luckConsumer');
+const famousConsumerClass = require('../consumers/famousConsumer');
+const commonQuesClass = require('../consumers/commonQuesConsumer');
+
 var fishAlarm = require('../timeConsumer/fishAlarm');
 var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
-var groupLists = { //This is the groupList and default is bird
-    614011147:"bird",
-    122745078:"pig",
-    937306333:"cat",
-    1153646847:"redFish",
+var defaultConsumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass];
+var groupServerConsumers = { //This is the groupList and default is bird
+    614011147:{
+        'name':'bird',
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+    },
+    122745078:{
+        'name':'pig',
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+    },
+    937306333:{
+        'name':'cat',
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+    },
+    1153646847:{
+        'name':'redFish',
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+    },
+    00000000:{
+        'name':'private',
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+    },
+    88888888:{
+        'name':'default',
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass]
+    }
 }
-var cmd2func = {
-    "bird":birdCmd2func,
-    "pig":pigCmd2func,
-    "cat":catCmd2func,
-    "redFish":redFishCmd2func,
-    "default":defaultCmd2func,
-}
+
 var app = new Koa();
 app.use(bodyParser());
 fullCaculation(); //Cauculation the fullResults
-function sendGroupMessage(port,group_id,message){
-    let url = 'http://localhost:'+port+'/send_group_msg';
-    console.log(url);
-    axios.post(url,{group_id,message},{headers:{'Content-Type':'application/json'}}).then((response)=>{
-        // console.log(response); if no error occures dont need to deal with respose.
-    }).catch((err)=>{
-        console.log(`error occured with send message: ${message} , the error info: ${err}`); //deal with error if error occured. may create an error log?
-    })
-}
 
 app.use(async ctx =>{
+    var group_id = ctx.request.body.group_id;
+    if(!group_id){group_id = 00000000} //Private Message
+    var nameAndConsumers = groupServerConsumers[group_id];
+    if(!nameAndConsumers){nameAndConsumers = groupServerConsumers[88888888];} //Default
+    for(let index = 0; i<nameAndConsumers['consumers'].length;i++){
+        if(nameAndConsumers['consumers'][index].valid(ctx)){
+            var consumer = new nameAndConsumers['consumers'](ctx,nameAndConsumers['name']);
+            consumer.work(); //工作
+        }
+    }
+})
+
+//这就是Bot的核心函数
+
+
+/*app.use(async ctx =>{
     //现在需要先判断然后传递不同的参数
     if(ctx.request.body.message_type == 'group'||ctx.request.body.notice_type == 'group_increase'){
         var serverName = groupLists[ctx.request.body.group_id];
@@ -68,9 +99,10 @@ app.use(async ctx =>{
         }
     }
     //record data to files by consumer.
-})
+})*/
 
 app.listen(5702); //服务器启动
+
 setInterval(function(){ //定时广播
     axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
         var groupList = [];

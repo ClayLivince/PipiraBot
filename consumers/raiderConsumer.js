@@ -4,6 +4,8 @@ const fishCauculation = require('../stdFunc/fishCauculation');
 const results2cdmessages = require('../stdFunc/results2cdmessages');
 const raider = require('../resources/raider');
 const Consumer = require('../consumers/Consumer');
+const fs = require('fs');
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 class raiderConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
@@ -34,6 +36,9 @@ class raiderConsumerClass extends Consumer{
                 "fishName":fishName,
             }
         }
+        sendGroupMessage(this.port,this.ctx.request.body.group_id,this.message[0]); //直接发送消息
+        sendGroupMessage(this.port,this.ctx.request.body.group_id,this.message[1]); //直接发送消息
+        fs.appendFile('../log/log.txt',JSON.stringify(this.log)+'\n',()=>{});
     }
 }
 module.exports = raiderConsumerClass;

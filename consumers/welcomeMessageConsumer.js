@@ -1,5 +1,7 @@
 const Consumer = require('../consumers/Consumer');
 const welcomeMessages = require('../resources/welcomeMessages');
+const fs = require('fs');
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 class welcomeConsumerClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
@@ -17,6 +19,8 @@ class welcomeConsumerClass extends Consumer{
             "type":"welcome",
             "date":Date.now(),
         }
+        sendGroupMessage(this.port,this.ctx.request.body.group_id,this.message[0]); //直接发送消息
+        fs.appendFile('../log/log.txt',JSON.stringify(this.log)+'\n',()=>{});
     }
 }
 module.exports = welcomeConsumerClass;

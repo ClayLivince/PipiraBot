@@ -1,5 +1,7 @@
 const Consumer = require("./Consumer");
 const commonQues = require('../resources/commonQues');
+const fs = require('fs');
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 class commonQuesClass extends Consumer{
     constructor(ctx,serverName){
         super(ctx,serverName);
@@ -36,6 +38,8 @@ class commonQuesClass extends Consumer{
                 question:dealtMessage[0]?dealtMessage[0]:null
             }
         }
+        sendGroupMessage(this.port,this.ctx.request.body.group_id,this.message[0]); //直接发送消息
+        fs.appendFile('../log/log.txt',JSON.stringify(this.log)+'\n',()=>{});
     }
 }
 module.exports = commonQuesClass;

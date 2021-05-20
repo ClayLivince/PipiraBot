@@ -1,5 +1,7 @@
 const Consumer = require("./Consumer");
-var createBlessInfomation = require('../stdFunc/seaFishing').createBlessInfomation;
+const fs = require('fs');
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
+const createBlessInfomation = require('../stdFunc/seaFishing').createBlessInfomation;
 class blessConsumerClass extends Consumer{ //新类
     constructor(ctx,serverName){
         super(ctx,serverName);
@@ -26,6 +28,8 @@ class blessConsumerClass extends Consumer{ //新类
                 "game":result.game,
             }
         };
+        sendGroupMessage(this.port,this.ctx.request.body.group_id,this.message[0]); //直接发送消息
+        fs.appendFile('../log/log.txt',JSON.stringify(this.log)+'\n',()=>{});
     }
 }
 module.exports = blessConsumerClass;

@@ -1,4 +1,6 @@
 var Consumer = require('../consumers/Consumer');
+const fs = require('fs');
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 var createSeaFishingInfomation = require('../stdFunc/seaFishing').createSeaFishingInfomation;
 class seaLineConsumerClass extends Consumer{
     constructor(ctx,serverName){
@@ -18,6 +20,8 @@ class seaLineConsumerClass extends Consumer{
             "type":"seaLine",
             "date":Date.now(),
         }
+        sendGroupMessage(this.port,this.ctx.request.body.group_id,this.message[0]); //直接发送消息
+        fs.appendFile('../log/log.txt',JSON.stringify(this.log)+'\n',()=>{});
     }
 }
 module.exports = seaLineConsumerClass;

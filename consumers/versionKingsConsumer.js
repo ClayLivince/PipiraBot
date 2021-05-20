@@ -1,5 +1,7 @@
 var Consumer = require('../consumers/Consumer');
 const versionKings = require('../resources/versionKings');
+const fs = require('fs');
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 const fishCauculation = require('../stdFunc/fishCauculation');
 const results2cdmessages = require('../stdFunc/results2cdmessages');
 class versionKingsConsumerClass extends Consumer{
@@ -34,6 +36,8 @@ class versionKingsConsumerClass extends Consumer{
             "type":"versionKing",
             "date":Date.now(),
         }
+        sendGroupMessage(this.port,this.ctx.request.body.group_id,this.message[0]); //直接发送消息
+        fs.appendFile('../log/log.txt',JSON.stringify(this.log)+'\n',()=>{});
     }
 }
 module.exports = versionKingsConsumerClass;
