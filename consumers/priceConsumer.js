@@ -15,7 +15,7 @@ class priceConsumerClass extends Consumer{
         var dealtMessage = contentMessage.trim().split(/\s+/);
         if(dealtMessage[0] == "查价" || dealtMessage[0] == "查询价格"){
             dealtMessage.shift();
-            if(dealtMessage.length!=2 || dealtMessage.length!=3){
+            if(dealtMessage.length!=2){
                 //不处理,自生自灭
             }
             else{
@@ -48,6 +48,7 @@ class priceConsumerClass extends Consumer{
                                     priceMessage+=(`${data[i].pricePerUnit}*${data[i].quantity} ${(data[i].hq?"HQ":'')} 服务器：${data[i].worldName}\n`)
                                 }
                                 priceMessage+=`数据更新时间：${new Date(updateDate).getFullYear()}年${new Date(updateDate).getMonth()+1}月${new Date(updateDate).getDate()}日 ${new Date(updateDate).getHours()}时${new Date(updateDate).getMinutes()}分`;
+                                console.log(priceMessage)
                                 sendGroupMessage(this.port,this.ctx.request.body.group_id,priceMessage)
                             }
                         })

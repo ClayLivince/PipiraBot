@@ -19,7 +19,7 @@ class seaLineConsumerClass extends Consumer{
             "type":"seaLine",
             "date":Date.now(),
         }
-        this.message[0] += "想查看海钓过程中令人瞠目结舌的传说记录吗？输入‘传说 海王’即可查询";
+        this.message[0] += "\n想查看海钓过程中令人瞠目结舌的传说记录吗？输入‘传说 海王’即可查询";
         sendGroupMessage(this.port,this.ctx.request.body.group_id,this.message[0]); //直接发送消息
         fs.appendFile('../log/log.txt',JSON.stringify(this.log)+'\n',()=>{});
     }
