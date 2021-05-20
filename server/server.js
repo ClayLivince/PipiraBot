@@ -19,6 +19,7 @@ const commonQuesClass = require('../consumers/commonQuesConsumer');
 
 var fishAlarm = require('../timeConsumer/fishAlarm');
 var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
+const { request } = require('http');
 var defaultConsumerList = [welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass];
 var groupServerConsumers = { //This is the groupList and default is bird
     614011147:{
@@ -52,6 +53,7 @@ app.use(bodyParser());
 fullCaculation(); //Cauculation the fullResults
 
 app.use(async ctx =>{
+    console.log(ctx.request.url);
     var group_id = ctx.request.body.group_id;
     if(!group_id){group_id = 00000000} //Private Message
     var nameAndConsumers = groupServerConsumers[group_id];
