@@ -1,6 +1,5 @@
 const Consumer = require("./Consumer");
-const ItemJson = require('../resources/item.json');
-ItemJson = JSON.parse(ItemJson);
+const ItemJson = ('../resources/item.js');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 const axios = require("axios");
 class priceConsumerClass extends Consumer{
