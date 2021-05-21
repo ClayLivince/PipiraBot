@@ -33,7 +33,7 @@ class priceConsumerClass extends Consumer{
                     server = "猫小胖";
                 }
                 var itemID = ItemJson[item];
-                if(key){
+                if(itemID){
                     var priceUrl = `https://universalis.app/api/${server}/${itemID}`;
                     priceUrl = encodeURI(priceUrl);
                     axios.get(priceUrl).then((res)=>{
