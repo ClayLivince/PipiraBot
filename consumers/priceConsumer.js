@@ -32,6 +32,8 @@ class priceConsumerClass extends Consumer{
                 else if(server == "猫"){
                     server = "猫小胖";
                 }
+                console.log(item);
+                console.log(ItemJson);
                 var itemID = ItemJson[item];
                 if(itemID){
                     var priceUrl = `https://universalis.app/api/${server}/${itemID}`;
