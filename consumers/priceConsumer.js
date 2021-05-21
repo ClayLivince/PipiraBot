@@ -22,6 +22,7 @@ class priceConsumerClass extends Consumer{
             else{
                 //先处理商品名
                 var item = dealtMessage[0];
+                var server = dealtMessage[1];
                 if(server == "鸟"){
                     server = "陆行鸟";
                 }
