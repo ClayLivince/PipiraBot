@@ -1,5 +1,5 @@
 const Consumer = require("./Consumer");
-const ItemJson = ('../resources/item.js');
+const ItemJson = require('../resources/item.js');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 const axios = require("axios");
 class priceConsumerClass extends Consumer{
@@ -32,8 +32,6 @@ class priceConsumerClass extends Consumer{
                 else if(server == "猫"){
                     server = "猫小胖";
                 }
-                console.log(item);
-                console.log(ItemJson);
                 var itemID = ItemJson[item];
                 if(itemID){
                     var priceUrl = `https://universalis.app/api/${server}/${itemID}`;
