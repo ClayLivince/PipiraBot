@@ -53,7 +53,7 @@ class priceConsumerClass extends Consumer{
                     })
                 }
                 else{
-                    errorMessage = `找不到查询的物品，请检查您的物品输入！`;
+                    var errorMessage = `找不到查询的物品，请检查您的物品输入！`;
                     sendGroupMessage(this.port,this.ctx.request.body.group_id,priceMessage)
                 }
             }
