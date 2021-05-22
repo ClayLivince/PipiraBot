@@ -15,7 +15,7 @@ const worldName = {
     "BaiJinHuanXiang":"白金幻象",
     "ShenQuanHen":"神拳痕",
     "ChaoFengTing":"潮风亭",
-    "LvRenZhanDao":"旅人栈道",
+    "LvRenZhanQiao":"旅人栈桥",
     "FuXiaoZhiJian":"拂晓之间",
     "Longchaoshendian":"龙巢神殿",
     "MengYuBaoJing":"梦羽宝境",
