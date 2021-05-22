@@ -73,7 +73,7 @@ class priceConsumerClass extends Consumer{
                             var data = res.data.listings;
                             var priceMessage = `${dealtMessage[0]} ${server}的价格是：\n`;
                             var filterList = [];
-                            for(let j = 0; j<data.length||filterList.length<=5;j++){
+                            for(let j = 0; j<data.length&&filterList.length<=5;j++){
                                 if(isHQ){
                                     if(data[j].hq){filterList.push(data[j])}
                                 }
@@ -81,7 +81,7 @@ class priceConsumerClass extends Consumer{
                             }
                             if(filterList.length==0){priceMessage = "未查询到相关商品信息，若查询的内容为HQ，可以尝试查询NQ\n";}
                             for(let i = 0; i<filterList.length; i++){
-                                priceMessage+=(`${data[i].pricePerUnit}*${data[i].quantity} ${(data[i].hq?"HQ":'')} 服务器：${worldName[data[i].worldName]}\n`)
+                                priceMessage+=(`${filterList[i].pricePerUnit}*${filterList[i].quantity} ${(filterList[i].hq?"HQ":'')} 服务器：${worldName[filterList[i].worldName]}\n`)
                             }
                             priceMessage+=`数据更新时间：${new Date(updateDate).getFullYear()}年${new Date(updateDate).getMonth()+1}月${new Date(updateDate).getDate()}日 ${new Date(updateDate).getHours()}时${new Date(updateDate).getMinutes()}分`;
                             console.log(priceMessage)
