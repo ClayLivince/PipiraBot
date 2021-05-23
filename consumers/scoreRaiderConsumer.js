@@ -12,7 +12,7 @@ class scoreRaiderConsumer extends Consumer{
     }
     work(){
         let result = createSeaFishingPic().score;
-        let message = `感谢鱼糕桌面版提供的攻略！\n[CQ:image,file=${result}.jpg]`;
+        let message = `感谢鱼糕桌面版提供的攻略！\n[CQ:image,file=${result}]`;
         sendGroupMessage(this.port,this.ctx.request.body.group_id,message);
     }
 }
