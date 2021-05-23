@@ -92,7 +92,7 @@ setInterval(function(){ //一次性广播
         var messages2 = `[CQ:at,qq=all]\n[CQ:image,file=https://z3.ax1x.com/2021/05/23/gOaO9P.jpg]`;
         var validGroups = [614011147,122745078,937306333,878312744];
         validGroups.forEach((group)=>{
-            if(new Date().getHours == 11 && new Date().getMinutes() == 0){
+            if(new Date().getHours() == 11 && new Date().getMinutes() == 5){
                 sendGroupMessage('5701',group,messages1);
                 sendGroupMessage('5701',group,messages2);
             }
