@@ -73,13 +73,14 @@ setInterval(function(){ //定时广播
     axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
         var groupList = [];
         var validGroups = [614011147,122745078,937306333,729794406,878312744];
+        var banGroups = [1029728129];
         res.data.data.forEach((group_msg)=>{
             groupList.push(group_msg.group_id)
         })
         let messages = fishAlarm();
         messages.forEach((message)=>{
             groupList.forEach((group)=>{
-                if(validGroups.indexOf(group)!=-1 || (new Date().getHours()>=8 && new Date().getHours()<23)){
+                if((validGroups.indexOf(group)!=-1 || (new Date().getHours()>=8 && new Date().getHours()<23)) && banGroups.indexOf(group) == -1){
                     sendGroupMessage('5701',group,message);
                 }
             })
