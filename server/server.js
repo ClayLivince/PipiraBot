@@ -19,25 +19,27 @@ const luckConsumerClass = require('../consumers/luckConsumer');
 const famousConsumerClass = require('../consumers/famousConsumer');
 const commonQuesClass = require('../consumers/commonQuesConsumer');
 const priceConsumerClass = require('../consumers/priceConsumer');
+const scoreRaiderConsumer = require('../consumers/scoreRaiderConsumer');
+const achieveRaiderConsumer = require('../consumers/achieveRaiderCosumer');
 
 var fishAlarm = require('../timeConsumer/fishAlarm');
 var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
 var groupServerConsumers = { //This is the groupList and default is bird
     614011147:{
         'name':'bird',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass,scoreRaiderConsumer,achieveRaiderConsumer]
     },
     122745078:{
         'name':'pig',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass,scoreRaiderConsumer,achieveRaiderConsumer]
     },
     937306333:{
         'name':'cat',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass,scoreRaiderConsumer,achieveRaiderConsumer]
     },
     1153646847:{
         'name':'redFish',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClas,scoreRaiderConsumer,achieveRaiderConsumer]
     },
     00000000:{
         'name':'private',
@@ -45,7 +47,7 @@ var groupServerConsumers = { //This is the groupList and default is bird
     },
     88888888:{
         'name':'default',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass,scoreRaiderConsumer,achieveRaiderConsumer]
     }
 }
 
@@ -77,6 +79,7 @@ setInterval(function(){ //定时广播
         res.data.data.forEach((group_msg)=>{
             groupList.push(group_msg.group_id)
         })
+        console.log(groupList);
         let messages = fishAlarm();
         messages.forEach((message)=>{
             groupList.forEach((group)=>{

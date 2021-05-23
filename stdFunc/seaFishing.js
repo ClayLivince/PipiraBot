@@ -55,6 +55,22 @@ function createSeaFishingInfomation(){
     }
     return messages;
 }
+function createSeaFishingPic(){
+    var days;
+    var minus = Date.now()-standardDay;
+    if(minus>=0){
+        days = Math.floor(minus/86400000)  //1 day = 86400000ms
+        hours = Math.floor((minus - 86400000 * days)/3600000);
+        minutes = Math.floor((minus - 86400000 * days - hours * 3600000)/60000);
+        var newOrder = changeOrder(days);
+        var segment = Math.floor(hours/2);
+        var line = linesList[newOrder[segment]];
+        var pic = {"score":"","achieve":""};
+        pic["score"] = line.scorePic;
+        if(line.achievePic){pic["achieve"] = line.achievePic}
+    }
+    return pic;
+}
 function createBlessInfomation(user_id){
     var repeat = false;
     var messages = '';
@@ -139,4 +155,4 @@ function createBlessInfomation(user_id){
     }
     return {messages,luck,'bless':line.blessName,'game':gameLists[gameIndex],'repeat':repeat};
 }
-module.exports = {createSeaFishingInfomation,createBlessInfomation}
+module.exports = {createSeaFishingInfomation,createBlessInfomation,createSeaFishingPic}
