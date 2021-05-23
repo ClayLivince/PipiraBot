@@ -8,7 +8,7 @@ class achieveRaiderConsumer extends Consumer{
     }
     static valid(ctx){
         let validMessage = ctx.request.body.message;
-        return validMessage && validMessage == "成就攻略";
+        return validMessage && validMessage == "海钓成就攻略";
     }
     work(){
         let result = createSeaFishingPic().achieve;
@@ -19,7 +19,7 @@ class achieveRaiderConsumer extends Consumer{
         }
         else{
             result.forEach((name,index)=>{
-                message = `感谢鱼糕桌面版提供的攻略！\n[CQ:image,file=${name}.jpg]`;
+                message = `感谢鱼糕桌面版提供的攻略！\n[CQ:image,file=${name}]`;
                 sendGroupMessage(this.port,this.ctx.request.body.group_id,message);
             })
         }

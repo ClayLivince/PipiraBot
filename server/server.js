@@ -76,6 +76,7 @@ setInterval(function(){ //定时广播
         var groupList = [];
         var validGroups = [614011147,122745078,937306333,729794406,878312744];
         var banGroups = [1029728129];
+        res.data.data = Array.from(new Set(res.data.data))
         res.data.data.forEach((group_msg)=>{
             groupList.push(group_msg.group_id)
         })
