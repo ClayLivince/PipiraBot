@@ -39,7 +39,7 @@ var groupServerConsumers = { //This is the groupList and default is bird
     },
     1153646847:{
         'name':'redFish',
-        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClas,scoreRaiderConsumer,achieveRaiderConsumer]
+        'consumers':[welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass,scoreRaiderConsumer,achieveRaiderConsumer]
     },
     00000000:{
         'name':'private',
