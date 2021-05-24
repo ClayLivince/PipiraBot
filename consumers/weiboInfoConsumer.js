@@ -1,6 +1,6 @@
 var Consumer = require('./Consumer');
-const fishCauculation = require('./fishCauculation');
-const fullCaculation = require('./fullCauculation').fullCaculation;
+const fishCauculation = require('../stdFunc/fishCauculation');
+const fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 class weiboInfoConsumer extends Consumer{
     constructor(ctx,serverName){
