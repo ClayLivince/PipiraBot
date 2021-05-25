@@ -80,7 +80,6 @@ setInterval(function(){ //定时广播
             groupList.push(group_msg.group_id)
         })
         groupList = Array.from(new Set(groupList));
-        console.log(groupList);
         let messages = fishAlarm();
         messages.forEach((message)=>{
             groupList.forEach((group)=>{
@@ -93,8 +92,7 @@ setInterval(function(){ //定时广播
 },60000);
 setInterval(function(){ //一次性广播
         //https://z3.ax1x.com/2021/05/23/gOaO9P.jpg
-        var messages1 = "何为捕鱼人？\n是领略云海的缥缈，还是感受熔火的热烈。\n是身处盐湖的孤独，还是回望浮岛的永恒。\n一位真正的捕鱼人，敢于面对真正的巨浪，敢于追逐不朽的传说！\n第三届艾欧泽亚光之渔夫钓鱼大赛诚邀你的参与！\n详情请阅览群公告！规则和赛程安排见https://docs.qq.com/doc/DTHFXZ0VBVlF3d291";
-        var messages2 = `[CQ:at,qq=all]\n[CQ:image,file=https://z3.ax1x.com/2021/05/23/gOaO9P.jpg]`;
+        var messages1 = "[CQ:at,qq=all],何为捕鱼人？\n是领略云海的缥缈，还是感受熔火的热烈。\n是身处盐湖的孤独，还是回望浮岛的永恒。\n一位真正的捕鱼人，敢于面对真正的巨浪，敢于追逐不朽的传说！\n第三届艾欧泽亚光之渔夫钓鱼大赛诚邀你的参与！\n详情请阅览群公告！规则和赛程安排见https://docs.qq.com/doc/DTHFXZ0VBVlF3d291";
         var validGroups = [614011147,122745078,937306333,878312744];
         validGroups.forEach((group)=>{
             if(new Date().getHours() == 11 && new Date().getMinutes() == 5){
