@@ -80,6 +80,7 @@ setInterval(function(){ //定时广播
             groupList.push(group_msg.group_id)
         })
         groupList = Array.from(new Set(groupList));
+        console.log(groupList);
         let messages = fishAlarm();
         messages.forEach((message)=>{
             groupList.forEach((group)=>{
