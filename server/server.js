@@ -75,12 +75,12 @@ app.listen(5702); //服务器启动
 setInterval(function(){ //定时广播
     axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
         var groupList = [];
+        var validGroups = [614011147,122745078,937306333,878312744];
         var banGroups = [1029728129,681809399,957425998];
         res.data.data.forEach((group_msg)=>{
             groupList.push(group_msg.group_id)
         })
         groupList = Array.from(new Set(groupList));
-        console.log(groupList);
         let messages = fishAlarm();
         messages.forEach((message)=>{
             groupList.forEach((group)=>{
