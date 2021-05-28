@@ -55,5 +55,6 @@ var gameLists = [
     {'game':"口袋妖怪：钻石/珍珠重置版",'details':"在一边诅咒GF倒闭一边在玩"},
     {'game':"缺德模拟器",'details':"在玩"},
     {'game':"大菠萝3",'details':"正在挂机玩"},
-    {'game':"Three boys！",'details':"面无表情的在玩"}]
+    {'game':"Three boys！",'details':"面无表情的在玩"},
+    {'game':"洗手液战神8",'details':"在玩"}]
 module.exports = gameLists;
