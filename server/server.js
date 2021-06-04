@@ -76,7 +76,7 @@ setInterval(function(){ //定时广播
     axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
         var groupList = [];
         var validGroups = [614011147,122745078,937306333,878312744];
-        var banGroups = [1029728129,681809399,957425998,926415963,959606393,924022564];
+        var banGroups = [1029728129,681809399,957425998,926415963,959606393,924022564,931110733];
         res.data.data.forEach((group_msg)=>{
             groupList.push(group_msg.group_id)
         })
