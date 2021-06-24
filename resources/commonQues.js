@@ -11,5 +11,6 @@ var commonQues = {
     "Cd表":`CD鱼窗口长度一览表！(感谢轩辕十四@沃仙曦染制作)\n[CQ:image,file=cdTable.jpg]`,
     "cD表":`CD鱼窗口长度一览表！(感谢轩辕十四@沃仙曦染制作)\n[CQ:image,file=cdTable.jpg]`,
     "cd表":`CD鱼窗口长度一览表！(感谢轩辕十四@沃仙曦染制作)\n[CQ:image,file=cdTable.jpg]`,
+    "白屏":`如果鱼糕白屏，请检查能否正常访问网页版，如不能请检查是否使用过VPN之类的软件，上次使用是否正常关闭`,
 }
 module.exports = commonQues;
