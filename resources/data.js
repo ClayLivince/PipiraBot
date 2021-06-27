@@ -12463,7 +12463,7 @@ const DATA = {
             _id: 32053,
             previousWeatherSet: [],
             weatherSet: [4],
-            startHour: 16,
+            startHour: 17,
             endHour: 20,
             location: 226,
             bestCatchPath: [27587, 27492],
