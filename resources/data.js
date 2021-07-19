@@ -12499,6 +12499,43 @@ const DATA = {
             aquarium: null,
             "dataMissing": null
         }, 
+        32054: {
+            _id: 32054,
+            previousWeatherSet: [1],
+            weatherSet: [3],
+            startHour: 8,
+            endHour: 10,
+            location: 231,
+            bestCatchPath: [27590],
+            predators: {},
+            patch: 5.4,
+            folklore: 2507,
+            collectable: false,
+            fishEyes: false,
+            snagging: null,
+            hookset: "Powerful",
+            tug: "heavy",
+            gig: null,
+            aquarium: null,
+            "dataMissing": null
+        }, 
+        33316: {_id: 33316, previousWeatherSet: [1], weatherSet: [1], startHour: 22, endHour: 24, location: 199, bestCatchPath: [27585], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Precision", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33317: {_id: 33317, previousWeatherSet: [7], weatherSet: [10], startHour: 0, endHour: 24, location: 205, bestCatchPath: [27582], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Precision", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33318: {_id: 33318, previousWeatherSet: [], weatherSet: [], startHour: 6, endHour: 8, location: 211, bestCatchPath: [27583], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Precision", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33319: {_id: 33319, previousWeatherSet: [1, 2], weatherSet: [6], startHour: 10, endHour: 14, location: 212, bestCatchPath: [27590], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Precision", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33320: {_id: 33320, previousWeatherSet: [1, 2, 14], weatherSet: [14], startHour: 6, endHour: 10, location: 217, bestCatchPath: [27586, 27464], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Powerful", tug: "heavy", gig: null, aquarium: null, "dataMissing": null},
+        33322: {_id: 33322, previousWeatherSet: [10], weatherSet: [1], startHour: 7, endHour: 17, location: 222, bestCatchPath: [27589], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Precision", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33321: {_id: 33321, previousWeatherSet: [], weatherSet: [], startHour: 0, endHour: 24, location: 223, bestCatchPath: [27589], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Precision", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33323: {_id: 33323, previousWeatherSet: [3], weatherSet: [4], startHour: 2, endHour: 6, location: 229, bestCatchPath: [27589], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Precision", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33325: {_id: 33325, previousWeatherSet: [], weatherSet: [2], startHour: 22, endHour: 24, location: 232, bestCatchPath: [27588], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Powerful", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33326: {_id: 33326, previousWeatherSet: [], weatherSet: [3], startHour: 16, endHour: 20, location: 233, bestCatchPath: [27588, 27506], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Precision", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33324: {_id: 33324, previousWeatherSet: [], weatherSet: [], startHour: 6, endHour: 7, location: 245, bestCatchPath: [27587], predators: {}, "intuitionLength": null, patch: 5.5, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Powerful", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33239: {_id: 33239, previousWeatherSet: [1, 2], weatherSet: [4], startHour: 16, endHour: 24, location: 206, bestCatchPath: [27589, 28925], predators: {}, "intuitionLength": null, patch: 5.55, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Powerful", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33240: {_id: 33240, previousWeatherSet: [], weatherSet: [], startHour: 10, endHour: 16, location: 212, bestCatchPath: [27588], predators: {"33319": 1, "27452": 5}, "intuitionLength": 350, patch: 5.55, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Powerful", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33241: {_id: 33241, previousWeatherSet: [11], weatherSet: [14], startHour: 0, endHour: 2, location: 215, bestCatchPath: [27584], predators: {"27462": 10}, "intuitionLength": 350, patch: 5.55, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Precision", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33242: {_id: 33242, previousWeatherSet: [10], weatherSet: [1], startHour: 23.5, endHour: 24, location: 219, bestCatchPath: [27589], predators: {}, "intuitionLength": null, patch: 5.55, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Precision", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33243: {_id: 33243, previousWeatherSet: [], weatherSet: [], startHour: 10, endHour: 12, location: 225, bestCatchPath: [27587, 27490, 27491, 28071], predators: {}, "intuitionLength": null, patch: 5.55, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Powerful", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}, 
+        33244: {_id: 33244, previousWeatherSet: [2], weatherSet: [3], startHour: 0, endHour: 2, location: 232, bestCatchPath: [27590], predators: {"33325": 2}, "intuitionLength": 700, patch: 5.55, folklore: 2507, collectable: null, fishEyes: false, "bigFish": true, snagging: null, hookset: "Powerful", tug: "heavy", gig: null, aquarium: null, "dataMissing": null}
     },
         FISHING_SPOTS: {
             0: {
@@ -17557,6 +17594,22 @@ const DATA = {
                 name_en: "\u9ccd\u4eba\u4e4b\u654c",
                 icon: "029462"
             },
+            33316: {"_id": 33316, name_en: "\u5341\u5b57\u6d77\u661f","icon": "028491"}, //十字海星
+            33317: {"_id": 33317, name_en: "\u87d2\u86c7\u76d8\u4e3d\u9c7c","icon": "028494"}, //蟒蛇盘丽鱼
+            33318: {"_id": 33318, name_en: "\u94a2\u5243\u5200", "icon": "028037"}, //钢剃刀
+            33319: {"_id": 33319, name_en: "\u5f71\u53d8\u5f62\u9c7c", "icon": "028036"},//影变形鱼
+            33320: {"_id": 33320, name_en: "\u62ff\u5df4\u5f0f\u952f", "icon": "029623"}, //拿巴式锯  
+            33321: {"_id": 33321, name_en: "\u6a31\u82b1\u9cb1\u9c7c", "icon": "028493"},//樱花鲱鱼
+            33322: {"_id": 33322, name_en: "\u5929\u773c\u9c7c","icon": "028498"}, //天眼鱼
+            33323: {"_id": 33323, name_en: "\u5e95\u730e\u9c7c","icon": "028496"},//底猎鱼
+            33324: {"_id": 33324, name_en: "\u9ec4\u91d1\u76ae\u76ae\u62c9\u9c7c", "icon": "028492"}, //黄金皮皮拉鱼
+            33325: {"_id": 33325, name_en: "\u9690\u79d8\u7ffb\u8f66\u9c7c", "icon": "028035"}, //隐秘翻车鱼
+            33326: {"_id": 33326, name_en: "\u96ea\u4eba\u87f9","icon": "028034"},//雪人蟹
+            33240: {"_id": 33240, name_en: "\u6d77\u4e2d\u6076\u9738", "icon": "028038"}, //海中恶霸
+            33241: {"_id": 33241, name_en: "\u7164\u70ad\u60ca\u559c\u86cb","icon": "029622"}, 
+            33242: {"_id": 33242, name_en: "\u955c\u4e4b\u8776", "icon": "028495"}, 
+            33243: {"_id": 33243, name_en: "\u9686\u5361\u7684\u5927\u6c34\u86c7", "icon": "028499"}, 
+            33244: {"_id": 33244, name_en: "\u5e06\u8725\u9c7c","icon": "028033"},
         },
         WEATHER_RATES: {
             128: {
