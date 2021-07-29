@@ -57,7 +57,7 @@ app.use(ctx =>{ //receive message or group_increase
     var params = ctx.request.body.message.split(/[ ]+/).splice(1); //get the params
     var user_id = ctx.request.body.user_id;//get the user_id
     var role = ctx.request.body.sender.role; //"owner admin member"
-    checkCommand(group_id,command,params,user_id,role); //检查鉴权 
+    checkCommand({group_id,command,params,user_id,role}); //检查鉴权 
 })
 
 //主函数每十分钟查看一次群列表,出现新群就初始化mongo的document
