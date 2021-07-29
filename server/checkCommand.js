@@ -10,6 +10,7 @@ var checkCommand = function (info) {
     * @param {*} info group_id => 群号 command => 指令 params => 参数数组 user_id => 发送人QQ号 role => 身份 用于鉴权
     */    
     commands.forEach((command) => {
+        console.log(info.command);
         if (info.command == command.command) {
             let index = command.func; //get the index in the function list.
             groupModel.find({'groupId':info.group_id},(err,doc)=>{
