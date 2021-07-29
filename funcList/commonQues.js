@@ -1,3 +1,4 @@
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 var commonQues = function(info){
     let message = [];
     var params = info.params;
@@ -12,7 +13,7 @@ var commonQues = function(info){
             message[0] = "未找到相关常见问题，请@红豆年糕或者请寻求群友的帮助";
         }
     }
-    sendGroupMessage(5701,info.group_id,message[0]); //直接发送消息
+    sendGroupMessage('5701',info.group_id,message[0]); //直接发送消息
 }
 
 module.exports = commonQues;

@@ -1,3 +1,4 @@
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 const createLuckInformation = require('../stdFunc/createLuckInformation');
 var luck = function(info){
     let message = [];

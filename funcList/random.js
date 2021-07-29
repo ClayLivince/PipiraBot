@@ -1,3 +1,4 @@
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 var random = function (info) {
     let message = [];
     var randomIndex = Math.floor((Math.random() * (info.params.length)));

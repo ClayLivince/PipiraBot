@@ -1,3 +1,4 @@
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 var fishking = function(info){
     let message = [];
     message[0] = "";

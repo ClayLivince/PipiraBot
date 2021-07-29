@@ -1,5 +1,6 @@
     const famousData = require('../resources/famousData');
     const nickName = require('../resources/nickName');
+    const sendGroupMessage = require('../stdFunc/sendGroupMessage');
     var famous = function(info){
         let message = [];
         let name = info.params[0]
