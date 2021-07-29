@@ -54,7 +54,7 @@ app.use(ctx =>{ //receive message or group_increase
     console.log(ctx.request.body);
     var group_id = ctx.request.body.group_id; //get the group_id
     var command = ctx.request.body.message.split(/[ ]+/)[0]; //get the command
-    var params = ctx.request.body.message.split(/[ ]+/).split(1); //get the params
+    var params = ctx.request.body.message.split(/[ ]+/).splice(1); //get the params
     var user_id = ctx.request.body.user_id;//get the user_id
     var role = ctx.request.body.sender.role; //"owner admin member"
     checkCommand(group_id,command,params,user_id,role); //检查鉴权 
