@@ -1,9 +1,13 @@
-const address = 'http://localhost:5700'; //祈福相关的放在5700，其他攻略内容是5701
-var fs = require('fs');
 var Koa = require('koa');
 var bodyParser = require('koa-bodyparser');
-var axios = require('axios');
+var mongoose = require('mongoose');
+//var axios = require('axios');
+//var fishAlarm = require('../timeConsumer/fishAlarm');
+var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
+var checkCommand = require('./checkCommand');
+var groupModel = require('../mongo/groupModel').groupModel;
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
+/*
 
 const weiboInfoConsumer = require('../consumers/weiboInfoConsumer');
 const broadcastConsumerClass = require('../consumers/broadCastConsumer');
@@ -21,71 +25,52 @@ const famousConsumerClass = require('../consumers/famousConsumer');
 const commonQuesClass = require('../consumers/commonQuesConsumer');
 const priceConsumerClass = require('../consumers/priceConsumer');
 const scoreRaiderConsumer = require('../consumers/scoreRaiderConsumer');
-const achieveRaiderConsumer = require('../consumers/achieveRaiderCosumer');
+const achieveRaiderConsumer = require('../consumers/achieveRaiderCosumer');*/
 
-var fishAlarm = require('../timeConsumer/fishAlarm');
-var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
-var groupServerConsumers = { //This is the groupList and default is bird
-    614011147:{
-        'name':'bird',
-        'consumers':[weiboInfoConsumer,welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass,scoreRaiderConsumer,achieveRaiderConsumer]
-    },
-    122745078:{
-        'name':'pig',
-        'consumers':[weiboInfoConsumer,welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass,scoreRaiderConsumer,achieveRaiderConsumer]
-    },
-    937306333:{
-        'name':'cat',
-        'consumers':[weiboInfoConsumer,welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass,scoreRaiderConsumer,achieveRaiderConsumer]
-    },
-    1153646847:{
-        'name':'redFish',
-        'consumers':[weiboInfoConsumer,welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass,scoreRaiderConsumer,achieveRaiderConsumer]
-    },
-    00000000:{
-        'name':'private',
-        'consumers':[weiboInfoConsumer,broadcastConsumerClass]
-    },
-    88888888:{
-        'name':'default',
-        'consumers':[weiboInfoConsumer,welcomeMessageConsumerClass,versionKingsConsumerClass,seaLineConsumerClass,raiderConsumerClass,helpConsumerClass,fourKingsConsumerClass,cdConsumerClass,blessConsumerClass,randomConsumerClass,luckConsumerClass,famousConsumerClass,commonQuesClass,priceConsumerClass,scoreRaiderConsumer,achieveRaiderConsumer]
-    },
-}
-
+//启动之前先加载群列表
+fullCaculation(); //Cauculation the fullResults
 var app = new Koa();
 app.use(bodyParser());
-fullCaculation(); //Cauculation the fullResults
-
-app.use(async ctx =>{
-    var group_id = ctx.request.body.group_id;
-    if(!group_id){group_id = 00000000} //Private Message
-    var nameAndConsumers = groupServerConsumers[group_id];
-    if(!nameAndConsumers){nameAndConsumers = groupServerConsumers[88888888];} //Default
-    for(let index = 0; index<nameAndConsumers['consumers'].length;index++){
-        if(nameAndConsumers['consumers'][index].valid(ctx)){
-            console.log(nameAndConsumers['consumers'][index]);
-            var consumer = new nameAndConsumers['consumers'][index](ctx,nameAndConsumers['name']);
-            consumer.work(); //工作
-        }
-    }
+mongoose.connect('mongodb://localhost:27017/fengyubot', {useNewUrlParser: true});
+axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
+    res.data.data.forEach((group_msg)=>{
+        var group_id = group_msg;//.group_id;
+        groupModel.find({'groupId':group_id},(err,docs)=>{
+            if(docs.length==0){
+                groupModel.create({'groupId': group_id},(err,docs)=>{
+                    if(docs.length!=0){
+                        sendGroupMessage(5701,group_id,"皮皮拉鱼bot已经准备就绪！bot的具体使用方式可以输入help指令进行查看");
+                    }
+                });
+            }
+        })
+    })
 })
+
+app.use(ctx =>{ //receive message or group_increase
+    var group_id = ctx.request.body.group_id; //get the group_id
+    var command = ctx.request.body.message.split(/[ ]+/)[0]; //get the command
+    var params = ctx.request.body.message.split(/[ ]+/).split(1); //get the params
+    var user_id = ctx.request.body.user_id;//get the user_id
+    var role = ctx.request.body.sender.role; //"owner admin member"
+    checkCommand(group_id,command,params,user_id,role); //检查鉴权 
+})
+
+//主函数每十分钟查看一次群列表,出现新群就初始化mongo的document
 
 app.listen(5702); //服务器启动
 
 setInterval(function(){ //定时广播
     axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
-        var groupList = [];
-        var validGroups = [614011147,122745078,937306333,878312744];
-        var banGroups = [1029728129,681809399,957425998,926415963,959606393,924022564,931110733,596566452,562874613];
         res.data.data.forEach((group_msg)=>{
-            groupList.push(group_msg.group_id)
-        })
-        groupList = Array.from(new Set(groupList));
-        let messages = fishAlarm();
-        messages.forEach((message)=>{
-            groupList.forEach((group)=>{
-                if((validGroups.indexOf(group)!=-1 || (new Date().getHours()>=8 && new Date().getHours()<23)) && banGroups.indexOf(group) == -1){
-                    sendGroupMessage('5701',group,message);
+            var group_id = group_msg;//.group_id;
+            groupModel.find({'groupId':group_id},(err,docs)=>{
+                if(docs.length==0){
+                    groupModel.create({'groupId': group_id},(err,docs)=>{
+                        if(docs.length!=0){
+                            sendGroupMessage(5701,group_id,"皮皮拉鱼bot已经准备就绪！bot的具体使用方式可以输入help指令进行查看");
+                        }
+                    });
                 }
             })
         })
