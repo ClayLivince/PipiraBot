@@ -29,5 +29,5 @@ var checkCommand = function (info) {
     })
 }
 
-module.exports = { checkCommand };
+module.exports =  checkCommand ;
 //checkAuth
