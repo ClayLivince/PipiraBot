@@ -34,7 +34,7 @@ app.use(bodyParser());
 mongoose.connect('mongodb://localhost:27017/fengyubot', {useNewUrlParser: true});
 axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
     res.data.data.forEach((group_msg)=>{
-        var group_id = group_msg;//.group_id;
+        var group_id = group_msg.group_id;//.group_id;
         console.log(group_id);
         groupModel.find({'groupId':group_id},(err,docs)=>{
             if(err){console.log(err)}
