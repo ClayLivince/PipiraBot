@@ -51,6 +51,7 @@ axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type'
 })
 
 app.use(ctx =>{ //receive message or group_increase
+    console.log(ctx.request.body);
     var group_id = ctx.request.body.group_id; //get the group_id
     var command = ctx.request.body.message.split(/[ ]+/)[0]; //get the command
     var params = ctx.request.body.message.split(/[ ]+/).split(1); //get the params
