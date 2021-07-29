@@ -15,11 +15,11 @@ var checkCommand = function (info) {
             let index = command.func; //get the index in the function list.
             groupModel.find({'groupId':info.group_id},(err,doc)=>{
                 if(doc.length!==0){
-                    if(doc.functionLists.indexOf(index) == -1){
+                    if(doc[0].functionLists.indexOf(index) == -1){
                         sendGroupMessage(5701,info.group_id,"该功能在该群已被关闭，请联系管理员或群主使用开启指令开启功能。")
                     }
                     else{
-                        funcList[info.group_id](info); //开始运行代码
+                        funcList[index](info); //开始运行代码
                     }
                 }
                 else{
