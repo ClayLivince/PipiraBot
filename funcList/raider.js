@@ -1,5 +1,6 @@
 const fishCauculation = require('../stdFunc/fishCauculation');
 const results2cdmessages = require('../stdFunc/results2cdmessages');
+const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 const nickName = require('../resources/nickName');
 var raider = function(info){
     let message = [];
