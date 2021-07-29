@@ -1,7 +1,7 @@
 var commands = require('./commands');
 var groupModel = require('../mongo/groupModel');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
-var funcList = require('../')
+var funcList = require('../funcList/funclist');
 
 var checkCommand = function (info) {
     /**
