@@ -36,6 +36,7 @@ axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type'
     res.data.data.forEach((group_msg)=>{
         var group_id = group_msg;//.group_id;
         groupModel.find({'groupId':group_id},(err,docs)=>{
+            console.log(docs);
             if(docs.length==0){
                 groupModel.create({'groupId': group_id},(err,docs)=>{
                     if(docs.length!=0){
