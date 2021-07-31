@@ -5,7 +5,7 @@ var axios = require('axios');
 //var fishAlarm = require('../timeConsumer/fishAlarm');
 var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
 var checkCommand = require('./checkCommand');
-var groupModel = require('../mongo/groupModel').groupModel;
+var groupModel = require('../mongo/groupModel');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 /*
 

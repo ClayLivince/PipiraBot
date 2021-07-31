@@ -8,6 +8,7 @@ var commands = [
     {"func":4,"param":true,"command":"传说"},
     {"func":5,"param":false,"command":"四大天王"},
     {"func":6,"param":false,"command":"help"},
+    {"func":6,"param":false,"command":"帮助"},
     {"func":7,"param":false,"command":"占卜"},
     {"func":7,"param":false,"command":"luck"},
     {"func":8,"param":true,"command":"查价"}, //大区
@@ -20,7 +21,7 @@ var commands = [
     {"func":14,"param":true,"command":"报时添加"},
     {"func":15,"param":true,"command":"报时删除"},
     {"func":16,"param":false,"command":"报时列表"},
-    {"func":17,"param":false,"command":"功能列表"},
+    {"func":17,"param":false,"command":"修改欢迎消息"},
 ]
 
 module.exports = commands;

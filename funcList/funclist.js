@@ -10,9 +10,8 @@ const luck = require('./luck');
 const price = require('./price');
 const random = require('./random');
 const sealine = require('./sealine');
-const showfunc = require('./showfunc');
 const fishking = require('./fishking');
 
-let funclist = [raider,cd,bless,commonQues,famous,fourkings,null,luck,price,random,sealine,fishking,activate,deactivate,null,null,null,showfunc];
+let funclist = [raider,cd,bless,commonQues,famous,fourkings,null,luck,price,random,sealine,fishking,activate,deactivate,null,null,null,null];
 
 module.exports = funclist;
