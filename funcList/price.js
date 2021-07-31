@@ -44,6 +44,7 @@ var price = function (info) {
         isHQ = true;
     }
     var itemID = ItemJson[item];
+    if(serverName){
     if (itemID) {
         var priceUrl = `https://universalis.app/api/${serverName}/${itemID}`;
         priceUrl = encodeURI(priceUrl);
@@ -52,7 +53,7 @@ var price = function (info) {
             if (res.data.listings != []) {
                 var updateDate = res.data.lastUploadTime;
                 var data = res.data.listings;
-                var priceMessage = `${item}市场中的价格是：\n`;
+                var priceMessage = `${item}在市场中的价格是：\n`;
                 var filterList = [];
                 for (let j = 0; j < data.length && filterList.length <= 5; j++) {
                     if (isHQ) {
@@ -71,9 +72,11 @@ var price = function (info) {
         })
     }
     else {
-        var errorMessage = `找不到查询的物品，请检查您搜索的物品名！`;
+        var errorMessage = `物品名称有误，请检查您搜索的物品名！`;
         sendGroupMessage('5701', info.group_id, errorMessage)
     }
+    }
     })
+
 }
 module.exports = price;
