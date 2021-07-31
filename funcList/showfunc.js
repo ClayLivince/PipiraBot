@@ -4,7 +4,7 @@ const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 var showfunc = function (info) {
     let message;
     let funcList;
-    let funNameLists;
+    let funNameLists = [];
     groupModel.find({"groupId":info.group_id}, (err , doc)=>{
         if(doc.length!=0){
             funcList = doc[0].functionLists;

@@ -13,6 +13,6 @@ const sealine = require('./sealine');
 const showfunc = require('./showfunc');
 const fishking = require('./fishking');
 
-let funclist = [raider,cd,bless,commonQues,famous,fourkings,null,luck,price,random,sealine,fishking,activate,deactivate,null,null,null,showfunc,null];
+let funclist = [raider,cd,bless,commonQues,famous,fourkings,null,luck,price,random,sealine,fishking,activate,deactivate,null,null,null,showfunc];
 
 module.exports = funclist;
