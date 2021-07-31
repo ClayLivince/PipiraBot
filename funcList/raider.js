@@ -3,6 +3,7 @@ const results2cdmessages = require('../stdFunc/results2cdmessages');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 const nickName = require('../resources/nickName');
 const fishRaider = require('../resources/raider');
+const famousData = require('../resources/famousData');
 var raider = function(info){
     let message = [];
     var fishName = info.params[0];
