@@ -22,7 +22,7 @@ var activate = function (info) {
                         sendGroupMessage("5701",info.group_id,"该功能已开启!")
                     }
                     else{
-                        funcList.push(funcIndex);
+                        funcList.push(index);
                         groupModel.updateOne({"groupId":info.group_id},{'functionLists':funcList},()=>{
                             sendGroupMessage("5701",info.group_id,"该功能已开启!") 
                         })
