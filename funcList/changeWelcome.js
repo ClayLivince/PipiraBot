@@ -2,11 +2,11 @@ var groupModel = require('../mongo/groupModel');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 var changeWelcome = function(info){
     if(info.role!='member'){
-        var welcomeMsg;
+        var welcomeMsg = "";
         info.params.forEach((text)=>{
             welcomeMsg+=text;
         })
-        if(welcomeMsg){
+        if(welcomeMsg!==""){
             groupModel.find({"groupId":info.group_id},(err,docs)=>{
                 if(docs.length==0){
                     sendGroupMessage('5701',info.group_id,"请等待皮皮拉鱼蓄力完成哦")
