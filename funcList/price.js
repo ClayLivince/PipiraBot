@@ -48,7 +48,7 @@ var price = function (info) {
     var itemID = ItemJson[item];
     if (itemID) {
         var priceUrl = `https://universalis.app/api/${serverName}/${itemID}`;
-        cosnole.log(priceUrl);
+        console.log(priceUrl);
         priceUrl = encodeURI(priceUrl);
         axios.get(priceUrl).then((res) => {
             console.log("priceGotten!")
