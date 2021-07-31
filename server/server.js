@@ -39,7 +39,7 @@ axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type'
         groupModel.find({'groupId':group_id},(err,docs)=>{
             if(err){console.log(err)}
             console.log(docs);
-            if(docs.length==0){
+            if(docs && docs.length==0){
                 groupModel.create({'groupId': group_id},(err,docs)=>{
                     if(docs.length!=0){
                         sendGroupMessage(5701,group_id,"皮皮拉鱼bot已经准备就绪！bot的具体使用方式可以输入help指令进行查看");
@@ -51,6 +51,7 @@ axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type'
 })
 
 app.use(ctx =>{ //receive message or group_increase
+    console.log(ctx.request.body);
     if(ctx.request.body.message_type && ctx.request.body.message_type == "group"){ //**群指令处理方式 //
     var group_id = ctx.request.body.group_id; //get the group_id
     var command = ctx.request.body.message.split(/[ ]+/)[0]; //get the command
