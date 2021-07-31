@@ -64,7 +64,6 @@ app.use(ctx =>{ //receive message or group_increase
         increaseMessage(ctx.request.body);
     }
     else if(ctx.request.body.message_type && ctx.request.body.message_type == "private" && ctx.request.body.user_id == 360354542){
-        console.log("广播！");
         broadcast(ctx.request.body) //随便写一下
     }
 })
@@ -94,6 +93,7 @@ setInterval(function(){ //定时广播
 function broadcast(info){
     axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
         res.data.data.forEach((group_msg)=>{
+            console.log(group_msg);
             var group_id = group_msg;//.group_id;
             sendGroupMessage("5701",group_id,info.message)
         })
