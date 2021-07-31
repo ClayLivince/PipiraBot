@@ -94,6 +94,7 @@ setInterval(function(){ //定时广播
                             var resultTime = fishCauculation(fishName);
                             if(resultTime && resultTime.time.realBeginTimes[0]-Date.now()>600000 && resultTime.time.realBeginTimes[0]-Date.now()<660000){
                                 message = `${fishName}还有十分钟进入cd\n:${results2cdmessages(resultTime,1)}`
+                                sendGroupMessage('5701',group_id,message);
                             }
                         })
                     }
