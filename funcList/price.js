@@ -1,6 +1,7 @@
 const groupModel = require('../mongo/groupModel');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 const ItemJson = require('../resources/item');
+const axios = require('axios');
 var price = function (info) {
     let serverJson = {
         "鸟": "陆行鸟",
