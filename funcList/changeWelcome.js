@@ -2,7 +2,10 @@ var groupModel = require('../mongo/groupModel');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 var changeWelcome = function(info){
     if(info.role!='member'){
-        var welcomeMsg = info.params[0];
+        var welcomeMsg;
+        info.params.forEach((text)=>{
+            welcomeMsg+=text;
+        })
         if(welcomeMsg){
             groupModel.find({"groupId":info.group_id},(err,docs)=>{
                 if(docs.length==0){
