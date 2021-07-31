@@ -35,7 +35,6 @@ mongoose.connect('mongodb://localhost:27017/fengyubot', {useNewUrlParser: true})
 axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
     res.data.data.forEach((group_msg)=>{
         var group_id = group_msg.group_id;//.group_id;
-        console.log(group_id);
         groupModel.find({'groupId':group_id},(err,docs)=>{
             if(err){console.log(err)}
             console.log(docs);
@@ -75,7 +74,7 @@ app.listen(5702); //服务器启动
 setInterval(function(){ //定时广播
     axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
         res.data.data.forEach((group_msg)=>{
-            var group_id = group_msg;//.group_id;
+            var group_id = group_msg.group_id;
             groupModel.find({'groupId':group_id},(err,docs)=>{
                 if(docs.length==0){
                     groupModel.create({'groupId': group_id},(err,docs)=>{
@@ -93,8 +92,7 @@ setInterval(function(){ //定时广播
 function broadcast(info){
     axios.post('http://localhost:5701'+'/get_group_list',{},{headers:{'Content-Type':'application/json'}}).then((res)=>{
         res.data.data.forEach((group_msg)=>{
-            console.log(group_msg);
-            var group_id = group_msg;//.group_id;
+            var group_id = group_msg.group_id;
             sendGroupMessage("5701",group_id,info.message)
         })
     })
