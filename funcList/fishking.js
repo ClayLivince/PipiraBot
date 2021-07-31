@@ -1,6 +1,7 @@
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 const versionKings = require('../resources/versionKings');
 const fishCauculation = require('../stdFunc/fishCauculation');
+const results2cdmessages = require('../stdFunc/results2cdmessages');
 var fishking = function(info){
     let message = [];
     message[0] = "";
