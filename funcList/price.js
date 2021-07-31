@@ -37,8 +37,6 @@ var price = function (info) {
                 }
             }
         }
-    })
-    //先处理商品名
     let isHQ = false;
     let item = info.params[0];
     if (item.slice(item.length - 2, item.length) == "HQ" || item.slice(item.length - 2, item.length) == "Hq" || item.slice(item.length - 2, item.length) == "hq" || item.slice(item.length - 2, item.length) == "hQ") {
@@ -48,7 +46,6 @@ var price = function (info) {
     var itemID = ItemJson[item];
     if (itemID) {
         var priceUrl = `https://universalis.app/api/${serverName}/${itemID}`;
-        console.log(priceUrl);
         priceUrl = encodeURI(priceUrl);
         axios.get(priceUrl).then((res) => {
             console.log("priceGotten!")
@@ -77,5 +74,6 @@ var price = function (info) {
         var errorMessage = `找不到查询的物品，请检查您搜索的物品名！`;
         sendGroupMessage('5701', info.group_id, errorMessage)
     }
+    })
 }
 module.exports = price;
