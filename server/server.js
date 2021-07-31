@@ -64,6 +64,7 @@ app.use(ctx =>{ //receive message or group_increase
         increaseMessage(ctx.request.body);
     }
     else if(ctx.request.body.message_type && ctx.request.body.message_type == "private" && ctx.request.body.user_id == 360354542){
+        console.log("广播！");
         broadcast(ctx.request.body) //随便写一下
     }
 })
