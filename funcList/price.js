@@ -16,7 +16,7 @@ var price = function (info) {
             }
             else {
                 if (serverJson[info.params[1]]) {
-                    serverName = info.params[1];
+                    serverName = serverJson[info.params[1]];
                 }
                 else {
                     sendGroupMessage('5701', info.group_id, "服务器名称参数错误!");
@@ -30,7 +30,7 @@ var price = function (info) {
             }
             else {
                 if (serverJson[info.params[1]]) {
-                    serverName = info.params[1];
+                    serverName = serverJson[info.params[1]];
                 }
                 else {
                     sendGroupMessage('5701', info.group_id, "服务器名称参数错误");
