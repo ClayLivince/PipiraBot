@@ -4,9 +4,12 @@ var mongoose = require('mongoose');
 var axios = require('axios');
 //var fishAlarm = require('../timeConsumer/fishAlarm');
 var fullCaculation = require('../stdFunc/fullCauculation').fullCaculation;
+var fishCauculation = require('../stdFunc/fishCauculation');
 var checkCommand = require('./checkCommand');
 var groupModel = require('../mongo/groupModel');
+const nickName = require('../resources/nickName');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
+const results2cdmessages = require('../stdFunc/results2cdmessages');
 /*
 
 const weiboInfoConsumer = require('../consumers/weiboInfoConsumer');
@@ -82,6 +85,18 @@ setInterval(function(){ //定时广播
                             sendGroupMessage(5701,group_id,"皮皮拉鱼bot已经准备就绪！bot的具体使用方式可以输入help指令进行查看");
                         }
                     });
+                }
+                else{ //如果找到了
+                    let alarmLists = docs[0].alarmLists; //获取报时鱼的列表
+                    if(alarmLists.length!=0){ //不是空列表
+                        alarmLists.forEach((fishName)=>{
+                            if(nickName[fishName]){fishName = nickName[fishName]}
+                            var resultTime = fishCauculation(fishName);
+                            if(resultTime.time.realBeginTimes[0]-Date.now()>600000 && resultTime.time.realBeginTimes[0]-Date.now()<660000){
+                                message = `${fishName}还有十分钟进入cd\n:${results2cdmessages(result,1)}`
+                            }
+                        })
+                    }
                 }
             })
         })
