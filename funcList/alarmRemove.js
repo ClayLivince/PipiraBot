@@ -14,7 +14,7 @@ var alarmRemove = function(info){
                         let removeIndex = alarmLists.indexOf(fishName);
                         alarmLists.splice(removeIndex,1);
                         groupModel.updateOne({"groupId":info.group_id},{'alarmLists':alarmLists},()=>{
-                            sendGroupMessage('5701',info.group_id,`${fishNmae}已从监视列表中移除`);
+                            sendGroupMessage('5701',info.group_id,`${fishName}已从监视列表中移除`);
                         })
                     }
                     else{
