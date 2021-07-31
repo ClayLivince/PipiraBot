@@ -11,12 +11,12 @@ var alarmAdd = function(info){
                 else{
                     let alarmLists = docs[0].alarmLists;
                     if(alarmLists.indexOf(fishName)!=-1){
-                        sendGroupMessage('5701',info.group_id,`${fishNmae}已加入监视列表`);
+                        sendGroupMessage('5701',info.group_id,`${fishName}已加入监视列表`);
                     }
                     else{
                         alarmLists.push(fishName);
                         groupModel.updateOne({"groupId":info.group_id},{'alarmLists':alarmLists},()=>{
-                            sendGroupMessage('5701',info.group_id,`${fishNmae}已加入监视列表`);
+                            sendGroupMessage('5701',info.group_id,`${fishName}已加入监视列表`);
                         })
                     }
                 }
