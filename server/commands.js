@@ -21,7 +21,6 @@ var commands = [
     {"func":15,"param":true,"command":"报时删除"},
     {"func":16,"param":false,"command":"报时列表"},
     {"func":17,"param":false,"command":"功能列表"},
-    {"func":18,"param":true,"command":"绑定大区"}
 ]
 
 module.exports = commands;

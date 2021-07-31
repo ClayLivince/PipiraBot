@@ -53,7 +53,7 @@ var price = function (info) {
             if (res.data.listings != []) {
                 var updateDate = res.data.lastUploadTime;
                 var data = res.data.listings;
-                var priceMessage = `${item}在市场中的价格是：\n`;
+                var priceMessage = `${info.params[0]}在市场中的价格是：\n`;
                 var filterList = [];
                 for (let j = 0; j < data.length && filterList.length <= 5; j++) {
                     if (isHQ) {
