@@ -18,7 +18,7 @@ var activate = function (info) {
                 if(docs.length!=0){
                     var funcList = docs[0].functionLists;
                     var funcIndex = funcList.indexOf(index);
-                    if(funcIndex==-1){
+                    if(funcIndex!=-1){
                         sendGroupMessage("5701",info.group_id,"该功能已开启!")
                     }
                     else{
