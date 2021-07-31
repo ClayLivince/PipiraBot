@@ -5,8 +5,8 @@
         let message = [];
         let name = info.params[0]
         if(nickName[name]){name = nickName[name]}
-        if(famousData[dealtMessage[0]]){
-            message[0] = famousData[dealtMessage[0]]
+        if(famousData[name]){
+            message[0] = famousData[name]
         }
         else{
             message[0] = "目前传说中无此词条，投稿请私聊梦洄子时";
