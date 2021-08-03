@@ -3,7 +3,7 @@ const helpJson = require('../resources/helpJson');
 var help = function(info){
     let message = "";
     if(info.params.length == 0){ //只有hrlp
-        message = `[CQ:image,file=https://z3.ax1x.com/2021/07/31/WjG1yQ.png]`;
+        message = `[CQ:image,file=https://z3.ax1x.com/2021/08/03/fP2Uu6.png]`;
         sendGroupMessage('5701',info.group_id,message);
     }
     else{
