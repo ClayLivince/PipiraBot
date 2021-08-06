@@ -3,6 +3,7 @@ const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 const ItemJson = require('../resources/item');
 const axios = require('axios');
 var price = function (info) {
+    if(info.params.length!=0){
     let serverJson = {
         "鸟": "陆行鸟",
         "猫": "猫小胖",
@@ -77,6 +78,9 @@ var price = function (info) {
     }
     }
     })
-
+}
+else{
+    sendGroupMessage('5701',info.group_id,"请输入参数！查价指令的使用方法请查看help")
+}
 }
 module.exports = price;
