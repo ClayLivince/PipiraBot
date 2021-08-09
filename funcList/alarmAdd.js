@@ -1,8 +1,12 @@
 var groupModel = require('../mongo/groupModel');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
+const versionKings = require('../resources/versionKings');
 var alarmAdd = function(info){
     if(info.role!='member'){
-        var fishName = info.params[0];
+        var fishNameList = info.params;
+        if(fishNameList.length == 1 && versionKings[fishNameList[0]]){
+            fishNameList = versionKings[fishNameList[0]]
+        }
         if(fishName){
             groupModel.find({"groupId":info.group_id},(err,docs)=>{
                 if(docs.length==0){
@@ -10,15 +14,14 @@ var alarmAdd = function(info){
                 }
                 else{
                     let alarmLists = docs[0].alarmLists;
-                    if(alarmLists.indexOf(fishName)!=-1){
-                        sendGroupMessage('5701',info.group_id,`${fishName}已加入监视列表`);
-                    }
-                    else{
-                        alarmLists.push(fishName);
-                        groupModel.updateOne({"groupId":info.group_id},{'alarmLists':alarmLists},()=>{
-                            sendGroupMessage('5701',info.group_id,`${fishName}已加入监视列表`);
-                        })
-                    }
+                    fishNameList.forEach(fishName => {
+                        if(alarmLists.indexOf(fishName)==-1){
+                            alarmLists.push(fishName);
+                        }
+                    });
+                    groupModel.updateOne({"groupId":info.group_id},{'alarmLists':alarmLists},()=>{
+                        sendGroupMessage('5701',info.group_id,`监视列表更新完成`);
+                    })
                 }
             })
         }
