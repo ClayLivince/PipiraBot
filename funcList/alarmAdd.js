@@ -7,7 +7,7 @@ var alarmAdd = function(info){
         if(fishNameList.length == 1 && versionKings[fishNameList[0]]){
             fishNameList = versionKings[fishNameList[0]]
         }
-        if(fishName){
+        if(fishNameList.length){
             groupModel.find({"groupId":info.group_id},(err,docs)=>{
                 if(docs.length==0){
                     sendGroupMessage('5701',info.group_id,"请等待皮皮拉鱼蓄力完成哦")
