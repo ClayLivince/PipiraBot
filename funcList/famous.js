@@ -10,7 +10,7 @@
             message[0] = famousData[name]
         }
         else{
-            message[0] = "目前传说中无此词条，投稿请私聊梦洄子时";
+            message[0] = "目前传说中无此词条，投稿请私聊梦洄子时，或通过微博光之渔夫bot进行投稿";
         }
         if(sizeFamous[name]){
             message[1] = sizeFamous[name];

@@ -29,3 +29,6 @@ var sizeFamous = {
     "首领鳍龙":"首领鳍龙最大尺寸为550.6星寸，拥有者为<Morich@拂晓之间>",
 }
 module.exports = sizeFamous;
+
+更新：沙里贝涅、胸脊鲨
+新增：
