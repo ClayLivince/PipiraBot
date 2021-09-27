@@ -17,7 +17,8 @@ const alarmRemove = require('./alarmRemove');
 const alarmShow = require('./alarmShow');
 const changeWelcome = require('./changeWelcome');
 const nuannuan = require('./nuannuan');
+const setu = require('./setu');
 
-let funclist = [raider,cd,bless,commonQues,famous,fourkings,help,luck,price,random,sealine,fishking,activate,deactivate,alarmAdd,alarmRemove,alarmShow,changeWelcome,nuannuan];
+let funclist = [raider,cd,bless,commonQues,famous,fourkings,help,luck,price,random,sealine,fishking,activate,deactivate,alarmAdd,alarmRemove,alarmShow,changeWelcome,nuannuan,setu];
 
 module.exports = funclist;
