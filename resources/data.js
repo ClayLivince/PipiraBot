@@ -7899,7 +7899,7 @@ const DATA = {
         24893: {
             _id: 24893,
             previousWeatherSet: [2],
-            weatherSet: [4],
+            weatherSet: [3,4,5],
             startHour: 0,
             endHour: 8,
             location: 176,
@@ -17606,11 +17606,11 @@ const DATA = {
             33325: {"_id": 33325, name_en: "\u5978\u9690\u9c7c", "icon": "028035"}, //奸隐鱼
             33326: {"_id": 33326, name_en: "\u7ed2\u6bdb\u6d77\u795e\u867e","icon": "028034"},//绒毛海神虾
             33239:{"_id": 33329, name_en: "\u5229\u65af\u5854\u514b\u9ca8","icon": "028034"},
-            33240: {"_id": 33240, name_en: "\u6d77\u4e2d\u6076\u9738", "icon": "028038"}, //海中恶霸
+            33240: {"_id": 33240, name_en: "\u81ea\u8d70\u9c7c\u5076", "icon": "028038"}, //海中恶霸
             33241: {"_id": 33241, name_en: "\u60ca\u559c\u86cb","icon": "029622"}, 
-            33242: {"_id": 33242, name_en: "\u955c\u4e4b\u8776", "icon": "028495"}, 
-            33243: {"_id": 33243, name_en: "\u9686\u5361\u7684\u5927\u6c34\u86c7", "icon": "028499"}, 
-            33244: {"_id": 33244, name_en: "\u5e06\u8725\u9c7c","icon": "028033"},
+            33242: {"_id": 33242, name_en: "\u955c\u4e2d\u8776", "icon": "028495"}, 
+            33243: {"_id": 33243, name_en: "\u9686\u5361\u7684\u5927\u6c34\u86c7\uff1f", "icon": "028499"}, 
+            33244: {"_id": 33244, name_en: "\u957f\u543b\u5e06\u8725\u9c7c","icon": "028033"},
         },
         WEATHER_RATES: {
             128: {

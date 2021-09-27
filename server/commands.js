@@ -24,6 +24,9 @@ var commands = [
     {"func":17,"param":false,"command":"修改欢迎消息"},
     {"func":18,"param":false,"command":"暖暖"},
     {"func":18,"param":false,"command":"nuannuan"},
+    {"func":19,"param":false,"command":"二次元"},
+    {"func":19,"param":false,"command":"带我去二次元"},
+    {"func":19,"param":false,"command":"色图"},
 ]
 
 module.exports = commands;
