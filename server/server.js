@@ -65,6 +65,12 @@ app.use(ctx =>{ //receive message or group_increase
     else if(ctx.request.body.notice_type && ctx.request.body.notice_type == "group_increase"){//**群员增加处理方式 */
         increaseMessage(ctx.request.body);
     }
+    else if(ctx.request.body.message_type && ctx.request.body.message_type == "guild"){ //**频道消息处理方式 */
+        var guild_id = ctx.request.body.guild_id;
+        var channel_id = ctx.request.body.channel_id;
+        var command = ctx.request.body.message.split(/[ ]+/)[0]; //get the command
+        var params = ctx.request.body.message.split(/[ ]+/).splice(1); //get the params
+    }
     else if(ctx.request.body.message_type && ctx.request.body.message_type == "private" && ctx.request.body.user_id == 360354542){
         broadcast(ctx.request.body) //随便写一下
     }

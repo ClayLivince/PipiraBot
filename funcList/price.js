@@ -8,6 +8,7 @@ var price = function (info) {
         "鸟": "陆行鸟",
         "猫": "猫小胖",
         "猪": "莫古力",
+        "狗": "豆豆柴",
     }
     let serverName;
     groupModel.find({ "groupId": info.group_id }, (err, doc) => {
