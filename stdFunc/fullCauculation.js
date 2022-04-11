@@ -87,8 +87,6 @@ var fullCaculation = function(){ //*每次Bot启动的时候执行一次
             }
         }
             var result = {} //*临时存放信息的对象
-            ////console.log(information)
-            ////console.log(ITEMS[id].name_en)
             result["id"] = id;
             result["beginTimes"] = times;
             result["realBeginTimes"] = realtimes;

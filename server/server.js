@@ -10,27 +10,6 @@ var groupModel = require('../mongo/groupModel');
 const nickName = require('../resources/nickName');
 const sendGroupMessage = require('../stdFunc/sendGroupMessage');
 const results2cdmessages = require('../stdFunc/results2cdmessages');
-/*
-
-const weiboInfoConsumer = require('../consumers/weiboInfoConsumer');
-const broadcastConsumerClass = require('../consumers/broadCastConsumer');
-const cdConsumerClass = require('../consumers/cdConsumer');
-const fourKingsConsumerClass = require('../consumers/fourKingsConsumer');
-const helpConsumerClass = require('../consumers/helpConsumer');
-const raiderConsumerClass = require('../consumers/raiderConsumer');
-const seaLineConsumerClass = require('../consumers/seaLineConsumer');
-const versionKingsConsumerClass = require('../consumers/versionKingsConsumer');
-const welcomeMessageConsumerClass = require('../consumers/welcomeMessageConsumer');
-const blessConsumerClass = require('../consumers/blessConsumer');
-const randomConsumerClass = require('../consumers/randomConsumer');
-const luckConsumerClass = require('../consumers/luckConsumer');
-const famousConsumerClass = require('../consumers/famousConsumer');
-const commonQuesClass = require('../consumers/commonQuesConsumer');
-const priceConsumerClass = require('../consumers/priceConsumer');
-const scoreRaiderConsumer = require('../consumers/scoreRaiderConsumer');
-const achieveRaiderConsumer = require('../consumers/achieveRaiderCosumer');*/
-
-//启动之前先加载群列表
 fullCaculation(); //Cauculation the fullResults
 var app = new Koa();
 app.use(bodyParser());
@@ -75,8 +54,6 @@ app.use(ctx =>{ //receive message or group_increase
         broadcast(ctx.request.body) //随便写一下
     }
 })
-
-//主函数每十分钟查看一次群列表,出现新群就初始化mongo的document
 
 app.listen(5702); //服务器启动
 

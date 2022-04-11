@@ -51,7 +51,6 @@ var price = function (info) {
         var priceUrl = `https://universalis.app/api/${serverName}/${itemID}`;
         priceUrl = encodeURI(priceUrl);
         axios.get(priceUrl).then((res) => {
-            console.log("priceGotten!")
             if (res.data.listings != []) {
                 var updateDate = res.data.lastUploadTime;
                 var data = res.data.listings;
