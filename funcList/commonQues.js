@@ -8,7 +8,7 @@ var commonQues = function(info){
     }
     else{
         if(commonQuesJson[params[0]]){
-                message[0] = `[CQ:at,qq=${info.user_id}]\n ${commonQuesJson[params[0]]}`;
+                message[0] = `[CQ:at,qq=${info.user_id}]\n${commonQuesJson[params[0]]}`;
         }
         else{
             message[0] = "未找到相关常见问题，请@红豆年糕或者请寻求群友的帮助";
