@@ -22,8 +22,8 @@ axios.post('http://localhost:5701' + '/get_group_list', {}, { headers: { 'Conten
             console.log(docs);
             if (docs && docs.length == 0) {
                 groupModel.create({ 'groupId': group_id }, (err, docs) => {
-                    if (docs.length != 0) {
-                        sendGroupMessage(5701, group_id, "皮皮拉鱼bot已经准备就绪！bot的具体使用方式可以输入help指令进行查看");
+                    if (docs.length != 0 && group_id == "1153646847") {
+                        sendGroupMessage(5701, group_id, "1");
                     }
                 });
             }
