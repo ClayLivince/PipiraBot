@@ -55,6 +55,9 @@ app.use(ctx => { //receive message or group_increase
     }
     // No more 404 errors spamming!
     ctx.response.status = 200;
+    if (!ctx.response.body){
+        ctx.response.body = "";
+    }
 })
 
 app.listen(5702); //服务器启动
