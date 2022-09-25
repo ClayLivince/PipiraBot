@@ -53,6 +53,8 @@ app.use(ctx => { //receive message or group_increase
     else if (ctx.request.body.message_type && ctx.request.body.message_type == "private" && ctx.request.body.user_id == 360354542) {
         //broadcast(ctx.request.body) //随便写一下
     }
+    // No more 404 errors spamming!
+    ctx.response.status = 200;
 })
 
 app.listen(5702); //服务器启动
